@@ -50,7 +50,7 @@ module.exports = {
         'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
         'react/jsx-no-comment-textnodes': 'off',
-        'i18next/no-literal-string': ['error', { onlyAttribute: [''] }],
+        'i18next/no-literal-string': ['error'],
         'max-len': ['error', { ignoreComments: true, code: 110 }],
         'linebreak-style': ['error', 'windows'],
     },

@@ -4,9 +4,12 @@ export type BuildMode = webpack.Configuration['mode']
 
 export type BuildPort = number | string;
 
+export type BuildAanalyze = string;
+
 export interface BuildEnv {
     port: BuildPort,
     mode: BuildMode,
+    analyze: BuildAanalyze,
 }
 
 export interface BuildPaths {
@@ -21,4 +24,5 @@ export interface buildOptions {
     paths: BuildPaths,
     isDev: boolean,
     port: BuildPort,
+    analyze: BuildAanalyze,
 }

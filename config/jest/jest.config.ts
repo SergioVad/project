@@ -4,6 +4,7 @@
  */
 
 import type { Config } from 'jest';
+import path from 'path';
 
 const config: Config = {
     // All imported modules in your tests should be mocked automatically
@@ -14,6 +15,11 @@ const config: Config = {
 
     // The directory where Jest should store its cached dependency information
     // cacheDirectory: "C:\\Users\\Сергей\\AppData\\Local\\Temp\\jest",
+
+    moduleNameMapper: {
+        '\\.s?css$': 'identity-obj-proxy',
+        '\\.svg': path.resolve(__dirname, 'ComponentSVG.tsx'),
+    },
 
     // Automatically clear mock calls, instances, contexts and results before every test
     clearMocks: true,
@@ -49,7 +55,7 @@ const config: Config = {
 
     // An array of directory names to be searched recursively up from the requiring module's location
     moduleDirectories: [
-        'node_modules',
+        'node_modules', 'src',
     ],
 
     // The root directory that Jest should scan for tests and modules within
@@ -59,6 +65,12 @@ const config: Config = {
     testMatch: [
         '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
     ],
+
+    modulePaths: [
+        '<rootDir>src',
+    ],
+
+    setupFilesAfterEnv: ['<rootDir>/config/jest/setupTests.ts'],
 
     // Indicates whether the coverage information should be collected while executing the test
     // collectCoverage: false,
