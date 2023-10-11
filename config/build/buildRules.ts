@@ -1,5 +1,4 @@
 import webpack from 'webpack';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { buildOptions } from './types/config';
 import { cssLoader } from './loaders/cssLoader';
 
@@ -35,7 +34,7 @@ export const buildLoaders = ({ isDev }: buildOptions): webpack.RuleSetRule[] => 
         exclude: /node_modules/,
     };
 
-    const scssLoader = cssLoader(isDev)
+    const scssLoader = cssLoader(isDev);
     return [
         scssLoader,
         IMGLoader,
