@@ -3,7 +3,7 @@ import { Theme } from 'shared/contexts/theme/ThemeContext';
 
 export const ThemeDecorator = (theme: Theme) => (
     (Story: StoryFn) => (
-        <div>
-            
+        <div className={`app ${theme}`}>
+            <Story />
         </div>
     ));

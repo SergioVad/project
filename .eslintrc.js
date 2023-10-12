@@ -5,7 +5,12 @@ module.exports = {
         browser: true,
         es2021: true,
     },
-    extends: ['airbnb', 'plugin:react/recommended', 'plugin:i18next/recommended', 'plugin:storybook/recommended'],
+    extends: [
+        'airbnb',
+        'plugin:react/recommended',
+        'plugin:i18next/recommended',
+        'plugin:storybook/recommended',
+    ],
     parser: '@typescript-eslint/parser',
     overrides: [
         {
@@ -48,7 +53,8 @@ module.exports = {
         'react/jsx-no-comment-textnodes': 'off',
         'i18next/no-literal-string': ['error'],
         'max-len': ['error', { ignoreComments: true, code: 110 }],
-        'linebreak-style': ['error', 'windows'],
+        'linebreak-style': 'off',
+        'react/display-name': 'off',
     },
     globals: {
         __IS_DEV__: true,
