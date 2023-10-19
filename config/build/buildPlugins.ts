@@ -6,7 +6,7 @@ import { buildOptions } from './types/config';
 
 export const buildPlugins = (options: buildOptions): webpack.WebpackPluginInstance[] => {
     const { paths, isDev, analyze } = options;
-    return [
+    const plugins = [
         new HTMLWebpackPlugin({
             template: paths.html,
         }),
@@ -19,11 +19,16 @@ export const buildPlugins = (options: buildOptions): webpack.WebpackPluginInstan
         new webpack.DefinePlugin({
             __IS_DEV__: isDev,
         }),
-        // Позволяет делает изменения бандла без перезагрузки страницы
-        new webpack.HotModuleReplacementPlugin(),
-        // // Делает анализ размеров бандла
-        analyze && new BundleAnalyzerPlugin({
-            openAnalyzer: true,
-        }),
     ];
+    // Делает анализ размеров бандла
+    if (analyze) {
+        plugins.push(new BundleAnalyzerPlugin({
+            openAnalyzer: true,
+        }));
+    }
+    // Позволяет делает изменения бандла без перезагрузки страницы
+    if (isDev) {
+        plugins.push(new webpack.HotModuleReplacementPlugin());
+    }
+    return plugins;
 };

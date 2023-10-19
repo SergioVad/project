@@ -23,8 +23,13 @@ export const buildLoaders = ({ isDev }: buildOptions): webpack.RuleSetRule[] => 
         },
     };
 
+    const svgLoader = {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+    };
+
     const IMGLoader = {
-        test: /\.(png|jpg|gif|svg)$/i,
+        test: /\.(png|jpg|gif)$/i,
         type: 'asset/resource',
     };
 
@@ -38,6 +43,7 @@ export const buildLoaders = ({ isDev }: buildOptions): webpack.RuleSetRule[] => 
     return [
         scssLoader,
         IMGLoader,
+        svgLoader,
         babelLoader,
         tsLoader,
     ];
