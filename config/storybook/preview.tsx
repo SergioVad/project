@@ -1,7 +1,8 @@
 import type { Preview } from '@storybook/react';
-import { ThemeDecorator } from '../../src/shared/config/decorators/ThemeDecorator';
-import { RouterDecorator } from '../../src/shared/config/decorators/RouterDecorator';
 import 'app/styles/index.scss';
+import { RouterDecorator } from 'shared/config/decorators/RouterDecorator';
+import { ThemeDecorator } from 'shared/config/decorators/ThemeDecorator';
+import { Theme } from 'shared/contexts/theme/ThemeContext';
 
 const preview: Preview = {
     parameters: {
@@ -15,7 +16,7 @@ const preview: Preview = {
     },
     decorators: [
         RouterDecorator(),
-        ThemeDecorator('light'),
+        ThemeDecorator(Theme.LIGHT),
     ],
 };
 

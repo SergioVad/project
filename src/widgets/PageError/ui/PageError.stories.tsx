@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { ThemeDecorator } from 'shared/config/decorators/ThemeDecorator';
 import { Theme } from 'shared/contexts/theme/ThemeContext';
+import { ThemeDecorator } from 'shared/config/decorators/ThemeDecorator';
 import { PageError } from './PageError';
 
 const meta = {
@@ -9,7 +9,7 @@ const meta = {
     component: PageError,
     parameters: {
     },
-    tags: ['autodocs'],
+    // tags: ['autodocs'],
     argTypes: {
     },
 } satisfies Meta<typeof PageError>;

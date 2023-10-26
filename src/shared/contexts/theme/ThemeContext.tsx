@@ -15,14 +15,15 @@ interface ThemeContenxtProps {
 }
 
 interface ThemeProviderProps {
-    children: ReactNode
+    children: ReactNode,
 }
 
 export const LOCAL_STORAGE_THEME_KEY = 'theme';
 
 export const ThemeContext = createContext<ThemeContenxtProps>({});
 
-export const ThemeProvider = ({ children }: ThemeProviderProps) => {
+export const ThemeProvider = (props: ThemeProviderProps) => {
+    const { children } = props;
     const [theme, setTheme] = useState<Theme>(defaultTheme);
     const defaultProps = useMemo(() => ({
         theme,
