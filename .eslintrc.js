@@ -32,6 +32,10 @@ module.exports = {
                 'max-len': 'off',
             },
         },
+        {
+            files: ['src/**/*.slice.ts'],
+            rules: { 'no-param-reassign': ['error', { props: false }] },
+        },
     ],
     parserOptions: {
         ecmaVersion: 'latest',

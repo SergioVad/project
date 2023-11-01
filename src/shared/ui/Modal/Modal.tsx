@@ -1,6 +1,6 @@
 import { Mods, classNames } from 'shared/lib/classNames/classNames';
 import {
-    MouseEvent, ReactNode, useCallback, useEffect,
+    MouseEvent, ReactNode, useCallback, useEffect, useState,
 } from 'react';
 import cls from './Modal.module.scss';
 
@@ -8,13 +8,18 @@ interface ModalProps {
     className?: string;
     children?: ReactNode;
     isOpen?: boolean;
-    onClose?: () => void
+    onClose?: () => void;
+    lazy?: boolean;
 }
 
 export const Modal = (props: ModalProps) => {
     const {
-        className, children, isOpen, onClose,
+        className, children, isOpen, onClose, lazy,
     } = props;
+    const [isMounted, setIsMounted] = useState(false);
+    useEffect(() => {
+        setIsMounted(isOpen);
+    }, [isOpen]);
     const mods: Mods = {
         [cls.opened]: isOpen,
     };
@@ -37,8 +42,11 @@ export const Modal = (props: ModalProps) => {
             onClose();
         }
     };
+    if (lazy && !isMounted) {
+        return null;
+    }
     return (
-        <div className={classNames(cls.Modal, mods, [className])}>
+        <div className={classNames(cls.Modal, mods, [className, 'modal'])}>
             <div onClick={handleClose} className={cls.overlay}>
                 <div onClick={handleContentClick} className={cls.content}>
                     {children}

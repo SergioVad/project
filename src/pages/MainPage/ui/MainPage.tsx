@@ -1,3 +1,4 @@
+import { Counter } from 'entities/Counter';
 import { useTranslation } from 'react-i18next';
 import { BugButton } from 'widgets/PageError';
 
@@ -10,6 +11,7 @@ const MainPage = ({ className }: MainPageProps) => {
     return (
         <div>
             {t('Главная')}
+            <Counter />
             <BugButton />
         </div>
     );

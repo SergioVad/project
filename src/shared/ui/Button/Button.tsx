@@ -31,6 +31,7 @@ export const Button = (props: ButtonProps) => {
         className,
         square,
         size = ButtonSize.M,
+        type = 'button',
         ...otherProps
     } = props;
     const mods: Mods = {
@@ -39,7 +40,8 @@ export const Button = (props: ButtonProps) => {
     const additional: Additional = [className, cls[theme], cls[size]];
     return (
         <button
-            type="button"
+            // eslint-disable-next-line react/button-has-type
+            type={type}
             className={classNames(cls.Button, mods, additional)}
             {...otherProps}
         >
