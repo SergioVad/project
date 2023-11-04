@@ -8,11 +8,13 @@ interface InputProps extends HTMLInputProps{
     className?: string;
     value?: string;
     onChange?: (value: string) => void;
+    label?: string
 }
 
 export const Input = memo((props: InputProps) => {
     const {
         type = 'text',
+        label = '',
         className,
         value,
         onChange,
@@ -22,12 +24,16 @@ export const Input = memo((props: InputProps) => {
         onChange?.(e.target.value);
     };
     return (
-        <input
-            className={classNames(cls.Input, {}, [className])}
-            type={type}
-            onChange={onChangeInput}
-            value={value}
-            {...otherProps}
-        />
+        // eslint-disable-next-line jsx-a11y/label-has-associated-control
+        <label>
+            {label}
+            <input
+                className={classNames(cls.Input, {}, [className])}
+                type={type}
+                onChange={onChangeInput}
+                value={value}
+                {...otherProps}
+            />
+        </label>
     );
 });

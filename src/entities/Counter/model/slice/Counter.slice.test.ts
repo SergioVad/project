@@ -16,7 +16,7 @@ describe('CounterSlice', () => {
             value: 10,
         };
         expect(
-            CounterReducer(state as CounterSchema, CounterActions.increment()),
+            CounterReducer(state as CounterSchema, CounterActions.decrement()),
         ).toEqual({ value: 9 });
     });
     test('test with empty state', () => {

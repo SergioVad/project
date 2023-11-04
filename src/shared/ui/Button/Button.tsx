@@ -32,10 +32,12 @@ export const Button = (props: ButtonProps) => {
         square,
         size = ButtonSize.M,
         type = 'button',
+        disabled,
         ...otherProps
     } = props;
     const mods: Mods = {
         [cls.square]: square,
+        [cls.disabled]: disabled,
     };
     const additional: Additional = [className, cls[theme], cls[size]];
     return (

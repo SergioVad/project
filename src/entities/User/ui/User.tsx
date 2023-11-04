@@ -10,7 +10,7 @@ export const User = ({ className }: UserProps) => {
     const { t } = useTranslation();
     return (
         <div className={classNames(cls.User, {}, [className])}>
-            test
+            {t('test')}
         </div>
     );
 };

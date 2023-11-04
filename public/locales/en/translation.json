@@ -4,5 +4,10 @@
   "Язык": "Русский",
   "stranica-ne-naidena": "Page not found",
   "ru": "ru",
-  "voiti": "Login"
+  "Войти": "Login",
+  "Выйти": "Logout",
+  "Форма Авторизации": "Authorization form",
+  "Ошибка. Попробуйте еще раз": "Error. entry again",
+  "Введите имя": "Enter login",
+  "Введите пароль": "Enter password"
 }

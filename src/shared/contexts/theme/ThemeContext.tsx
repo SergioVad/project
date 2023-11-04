@@ -18,8 +18,6 @@ interface ThemeProviderProps {
     children: ReactNode,
 }
 
-export const LOCAL_STORAGE_THEME_KEY = 'theme';
-
 export const ThemeContext = createContext<ThemeContenxtProps>({});
 
 export const ThemeProvider = (props: ThemeProviderProps) => {
