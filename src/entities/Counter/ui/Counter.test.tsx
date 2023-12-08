@@ -1,4 +1,4 @@
-import { RenderComponent } from 'shared/lib/renderComponent/renderComponent';
+import { RenderComponent } from 'shared/lib/tests/renderComponent/renderComponent';
 import { screen } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
 import { Counter } from './Counter';

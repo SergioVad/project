@@ -1,6 +1,7 @@
-import { lazy } from 'react';
+import { ComponentType, lazy } from 'react';
+import { AboutPageProps } from './AboutPage';
 
-export const AboutPageAsync = lazy(() => new Promise((resolve) => {
+export const AboutPageAsync = lazy<ComponentType<AboutPageProps>>(() => new Promise((resolve) => {
     // @ts-ignore
     setTimeout(() => resolve(import('./AboutPage')), 1500);
 }));

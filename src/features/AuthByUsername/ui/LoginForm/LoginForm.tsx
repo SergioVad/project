@@ -5,20 +5,26 @@ import { memo, useCallback } from 'react';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { getStateError } from 'features/AuthByUsername/model/selectors/getStateError';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
-import { getStateIsLoading } from '../../model/selectors/getStateIsLoading';
-import { getStatePassword } from '../../model/selectors/getStatePassword';
-import { getStateUsername } from '../../model/selectors/getStateUsername';
-import cls from './LoginForm.module.scss';
-import { loginActions } from '../../model/slice/Login.slice';
+import { DynamicReducerLoader, ReducersList } from 'shared/lib/dynamicReducerLoader/dynamicReducerLoader';
+import { getStateIsLoading } from '../../model/selectors/getStateIsLoading/getStateIsLoading';
+import { getStatePassword } from '../../model/selectors/getStatePassword/getStatePassword';
+import { getStateUsername } from '../../model/selectors/getStateUsername/getStateUsername';
+import { getStateError } from '../../model/selectors/getStateError/getStateError';
+import { loginActions, loginReducer } from '../../model/slice/Login.slice';
 import { authByUsername } from '../../model/services/AuthByUsername';
+import cls from './LoginForm.module.scss';
 
-interface LoginFormProps {
+export interface LoginFormProps {
     className?: string;
+    onSuccess?: () => void;
 }
 
-export const LoginForm = memo(({ className }: LoginFormProps) => {
+export const reducersLoginForm: ReducersList = {
+    login: loginReducer,
+};
+
+const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
     const username = useSelector(getStateUsername);
@@ -31,41 +37,48 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
     const onChangePassword = useCallback((value: string) => {
         dispatch(loginActions.setPassword(value));
     }, [dispatch]);
-    const onSendData = useCallback(() => {
-        dispatch(authByUsername({ password, username }));
-    }, [dispatch, password, username]);
+    const onSendData = useCallback(async () => {
+        const result = await dispatch(authByUsername({ password, username }));
+        if (result.meta.requestStatus === 'fulfilled') {
+            onSuccess?.();
+        }
+    }, [dispatch, password, username, onSuccess]);
     return (
-        <div className={classNames(cls.LoginForm, {}, [className])}>
-            <Text
-                title={t('Форма Авторизации')}
-            />
-            {error
+        <DynamicReducerLoader reducers={reducersLoginForm} removeAfterUnmount>
+            <div className={classNames(cls.LoginForm, {}, [className])}>
+                <Text
+                    title={t('Форма Авторизации')}
+                />
+                {error
                 && (
                     <Text
                         text={t('Ошибка. Попробуйте еще раз')}
                         theme={TextTheme.ERROR}
                     />
                 )}
-            <Input
-                label={t('Введите имя')}
-                className={cls.input}
-                value={username}
-                onChange={onChangeUsername}
-            />
-            <Input
-                label={t('Введите пароль')}
-                className={cls.input}
-                value={password}
-                onChange={onChangePassword}
-            />
-            <Button
-                className={cls.button}
-                onClick={onSendData}
-                disabled={isLoading}
-                theme={ButtonTheme.OUTLINE}
-            >
-                {t('Войти')}
-            </Button>
-        </div>
+                <Input
+                    label={t('Введите имя')}
+                    className={cls.input}
+                    value={username}
+                    onChange={onChangeUsername}
+                />
+                <Input
+                    label={t('Введите пароль')}
+                    className={cls.input}
+                    value={password}
+                    onChange={onChangePassword}
+                />
+                <Button
+                    className={cls.button}
+                    onClick={onSendData}
+                    disabled={isLoading}
+                    theme={ButtonTheme.OUTLINE}
+                >
+                    {t('Войти')}
+                </Button>
+            </div>
+        </DynamicReducerLoader>
     );
 });
+
+export default LoginForm;

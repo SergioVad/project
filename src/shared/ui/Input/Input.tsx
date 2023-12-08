@@ -1,4 +1,5 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+/* eslint-disable */
+import { Mods, classNames } from 'shared/lib/classNames/classNames';
 import { ChangeEvent, InputHTMLAttributes, memo } from 'react';
 import cls from './Input.module.scss';
 
@@ -6,9 +7,9 @@ type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onC
 
 interface InputProps extends HTMLInputProps{
     className?: string;
-    value?: string;
+    value?: string | number;
     onChange?: (value: string) => void;
-    label?: string
+    label?: string;
 }
 
 export const Input = memo((props: InputProps) => {
@@ -18,20 +19,24 @@ export const Input = memo((props: InputProps) => {
         className,
         value,
         onChange,
+        readOnly,
         ...otherProps
     } = props;
+    const mods: Mods = {
+        [cls.readOnly]: readOnly,
+    }
     const onChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
         onChange?.(e.target.value);
     };
     return (
-        // eslint-disable-next-line jsx-a11y/label-has-associated-control
         <label>
             {label}
             <input
-                className={classNames(cls.Input, {}, [className])}
+                className={classNames(cls.Input, mods, [className])}
                 type={type}
                 onChange={onChangeInput}
                 value={value}
+                readOnly={readOnly}
                 {...otherProps}
             />
         </label>

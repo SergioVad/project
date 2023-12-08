@@ -10,13 +10,14 @@ export interface BuildEnv {
     port: BuildPort,
     mode: BuildMode,
     analyze: BuildAanalyze,
+    apiUrl: string,
 }
 
 export interface BuildPaths {
     entry: string,
     build: string,
     html: string,
-    src: string
+    src: string,
 }
 
 export interface buildOptions {
@@ -25,4 +26,6 @@ export interface buildOptions {
     isDev: boolean,
     port: BuildPort,
     analyze: BuildAanalyze,
+    apiUrl: string,
+    project: 'frontend',
 }

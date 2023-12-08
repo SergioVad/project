@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-interface AboutPageProps {
+export interface AboutPageProps {
     className?: string;
 }
 

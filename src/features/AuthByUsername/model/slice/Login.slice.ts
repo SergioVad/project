@@ -3,7 +3,7 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import type { LoginSchema } from '../types/loginSchema';
 import { authByUsername } from '../services/AuthByUsername';
 
-const initialState : LoginSchema = {
+export const initialState : LoginSchema = {
     username: '',
     password: '',
     isLoading: false,

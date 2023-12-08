@@ -1,6 +1,6 @@
 import { Mods, classNames } from 'shared/lib/classNames/classNames';
 import {
-    MouseEvent, ReactNode, useCallback, useEffect, useState,
+    MouseEvent, ReactNode, useCallback, useEffect,
 } from 'react';
 import cls from './Modal.module.scss';
 
@@ -16,16 +16,12 @@ export const Modal = (props: ModalProps) => {
     const {
         className, children, isOpen, onClose, lazy,
     } = props;
-    const [isMounted, setIsMounted] = useState(false);
-    useEffect(() => {
-        setIsMounted(isOpen);
-    }, [isOpen]);
     const mods: Mods = {
         [cls.opened]: isOpen,
     };
     const onKeyDown = useCallback((e: KeyboardEvent) => {
         if (e.key === 'Escape') {
-            onClose();
+            onClose?.();
         }
     }, [onClose]);
     useEffect(() => {
@@ -42,7 +38,7 @@ export const Modal = (props: ModalProps) => {
             onClose();
         }
     };
-    if (lazy && !isMounted) {
+    if (lazy && !isOpen) {
         return null;
     }
     return (

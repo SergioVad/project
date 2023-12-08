@@ -1,20 +1,17 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import { ThemeSwitcher } from 'features/ThemeSwitcher';
 import { LangSwitcher } from 'features/LangSwitcher';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
-import { useTranslation } from 'react-i18next';
 import cls from './Sidebar.module.scss';
-import About from '../../assets/image/main.svg';
-import Main from '../../assets/image/about.svg';
+import { SidebarItemList } from '../../model/sidebarItems';
+import { SidebarItem } from '../SidebarItem/SidebarItem';
 
 interface SidebarProps {
     className?: string;
 }
 
-export const Sidebar = ({ className }: SidebarProps) => {
-    const { t } = useTranslation();
+export const Sidebar = memo(({ className }: SidebarProps) => {
     const [collapsed, setCollapsed] = useState(false);
     const handleToogle = () => {
         setCollapsed((prev) => !prev);
@@ -25,23 +22,13 @@ export const Sidebar = ({ className }: SidebarProps) => {
             className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
         >
             <div className={cls.items}>
-                <AppLink
-                    theme={AppLinkTheme.PRIMARY}
-                    to="/"
-                    className={cls.item}
-                >
-                    <Main className={cls.img} />
-                    <span className={cls.link}>{t('Главная')}</span>
-                </AppLink>
-                <AppLink
-                    theme={AppLinkTheme.PRIMARY}
-                    to="/about"
-                    className={cls.item}
-                >
-                    <About className={cls.img} />
-                    <span className={cls.link}>{t('О сайте')}</span>
-                </AppLink>
-
+                {SidebarItemList.map((value) => (
+                    <SidebarItem
+                        item={value}
+                        collapsed={collapsed}
+                        key={value.path}
+                    />
+                ))}
             </div>
             <Button
                 data-testid="sidebar-toggle"
@@ -56,8 +43,11 @@ export const Sidebar = ({ className }: SidebarProps) => {
             </Button>
             <div className={cls.switchers}>
                 <ThemeSwitcher />
-                <LangSwitcher short={collapsed} className={cls.langSwitcherMargin} />
+                <LangSwitcher
+                    short={collapsed}
+                    className={cls.langSwitcherMargin}
+                />
             </div>
         </div>
     );
-};
+});

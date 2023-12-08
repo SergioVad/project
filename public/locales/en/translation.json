@@ -9,5 +9,12 @@
   "Форма Авторизации": "Authorization form",
   "Ошибка. Попробуйте еще раз": "Error. entry again",
   "Введите имя": "Enter login",
-  "Введите пароль": "Enter password"
+  "Введите пароль": "Enter password",
+  "profile-page": "Profile Page",
+  "profile": "Profile",
+  "vyberite-stranu": "Choose a country",
+  "Некорректное имя или фамилия": "Incorrect first or last name",
+  "Некорректный возраст": "Incorrect age",
+  "Некорректные данные": "Incorrect data",
+  "Ошибка сервера": "Server Error"
 }

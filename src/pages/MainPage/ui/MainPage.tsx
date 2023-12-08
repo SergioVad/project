@@ -2,7 +2,7 @@ import { Counter } from 'entities/Counter';
 import { useTranslation } from 'react-i18next';
 import { BugButton } from 'widgets/PageError';
 
-interface MainPageProps {
+export interface MainPageProps {
     className?: string;
 }
 

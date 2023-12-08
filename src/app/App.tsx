@@ -1,4 +1,3 @@
-/* eslint-disable react/button-has-type */
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
@@ -15,8 +14,8 @@ export function App() {
     const app = useRef(null);
     const [, setModal] = useState(false);
     useEffect(() => {
-        setModal(true);
         const userData = localStorage.getItem(USER_LOCALSTORAGE_KEY);
+        setModal(true);
         if (userData) {
             dispatch(userActions.getAuthData(JSON.parse(userData)));
         }

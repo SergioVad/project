@@ -10,14 +10,13 @@ export default ({ config }: {config: webpack.Configuration}) => {
         entry: '',
         src: path.resolve(__dirname, '..', '..', 'src'),
     };
-    config.resolve?.modules?.push(paths.src);
-    config.resolve?.extensions?.push('.ts', '.tsx');
-    config.module?.rules?.push(cssLoader(true));
+    config.resolve!.modules!.push(paths.src);
+    config.resolve!.extensions!.push('.ts', '.tsx');
+    config.module!.rules!.push(cssLoader(true));
     type typeRuleSetRule = false | '' | 0 | RuleSetRule | '...' | null | undefined;
 
-    if (config.module?.rules) {
         // eslint-disable-next-line no-param-reassign
-        config.module.rules = config.module?.rules?.map((rule: typeRuleSetRule) => {
+        config.module!.rules = config.module!.rules!.map((rule: typeRuleSetRule) => {
             if (rule
                 && rule !== '...'
                 && rule.test instanceof RegExp && rule.test.toString().includes('svg')) {
@@ -25,13 +24,14 @@ export default ({ config }: {config: webpack.Configuration}) => {
             }
             return rule;
         });
-    }
-    config.module?.rules?.push({
-        test: /\.svg$/,
-        use: ['@svgr/webpack'],
-    });
-    config.plugins?.push(new webpack.DefinePlugin({
-        __IS_DEV__: true,
-    }));
-    return config;
+        config.module!.rules!.push({
+            test: /\.svg$/,
+            use: ['@svgr/webpack'],
+        });
+        config.plugins!.push(new webpack.DefinePlugin({
+            __IS_DEV__: JSON.stringify(true),
+            __API__: JSON.stringify(true),
+            __PROJECT__: JSON.stringify('storybook'),
+        }));
+        return config;
 };

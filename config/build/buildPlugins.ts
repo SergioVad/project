@@ -5,7 +5,9 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { buildOptions } from './types/config';
 
 export const buildPlugins = (options: buildOptions): webpack.WebpackPluginInstance[] => {
-    const { paths, isDev, analyze } = options;
+    const {
+        paths, isDev, analyze, apiUrl, project,
+    } = options;
     const plugins = [
         new HTMLWebpackPlugin({
             template: paths.html,
@@ -17,7 +19,9 @@ export const buildPlugins = (options: buildOptions): webpack.WebpackPluginInstan
         }),
         // Позволяет использовать глобальные переменные
         new webpack.DefinePlugin({
-            __IS_DEV__: isDev,
+            __IS_DEV__: JSON.stringify(isDev),
+            __API__: JSON.stringify(apiUrl),
+            __PROJECT__: JSON.stringify(project),
         }),
     ];
     // Делает анализ размеров бандла

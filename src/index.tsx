@@ -8,15 +8,17 @@ import { App } from './app/App';
 import 'app/styles/index.scss';
 
 const rootElement = document.getElementById('root');
-const root = ReactDom.createRoot(rootElement);
-root.render(
-    <StoreProvider>
+if (rootElement) {
+    const root = ReactDom.createRoot(rootElement);
+    root.render(
         <BrowserRouter>
-            <ErrorBoundary>
-                <ThemeProvider>
-                    <App />
-                </ThemeProvider>
-            </ErrorBoundary>
-        </BrowserRouter>
-    </StoreProvider>,
-);
+            <StoreProvider>
+                <ErrorBoundary>
+                    <ThemeProvider>
+                        <App />
+                    </ThemeProvider>
+                </ErrorBoundary>
+            </StoreProvider>
+        </BrowserRouter>,
+    );
+}
