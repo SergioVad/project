@@ -4,7 +4,8 @@ import {
 
 export enum Theme {
     LIGHT = 'light',
-    DARK = 'dark'
+    DARK = 'dark',
+    ORANGE = 'orange',
 }
 
 const defaultTheme = localStorage.getItem('theme') as Theme || Theme.LIGHT;

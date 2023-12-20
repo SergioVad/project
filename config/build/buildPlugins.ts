@@ -2,6 +2,7 @@ import HTMLWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import webpack from 'webpack';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import ReactRefreshWebpackPlugin from '@pmmmWh/react-refresh-webpack-plugin';
 import { buildOptions } from './types/config';
 
 export const buildPlugins = (options: buildOptions): webpack.WebpackPluginInstance[] => {
@@ -32,6 +33,7 @@ export const buildPlugins = (options: buildOptions): webpack.WebpackPluginInstan
     }
     // Позволяет делает изменения бандла без перезагрузки страницы
     if (isDev) {
+        plugins.push(new ReactRefreshWebpackPlugin());
         plugins.push(new webpack.HotModuleReplacementPlugin());
     }
     return plugins;

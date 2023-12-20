@@ -16,5 +16,7 @@
   "Некорректное имя или фамилия": "Incorrect first or last name",
   "Некорректный возраст": "Incorrect age",
   "Некорректные данные": "Incorrect data",
-  "Ошибка сервера": "Server Error"
+  "Ошибка сервера": "Server Error",
+  "Статьи": "Articles Pages",
+  "Профайл": "Profile"
 }

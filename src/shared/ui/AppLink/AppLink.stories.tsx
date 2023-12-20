@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import { storiesOf, type Meta, type StoryObj } from '@storybook/react';
 
 import { ThemeDecorator } from 'shared/config/decorators/ThemeDecorator';
 import { Theme } from 'shared/contexts/theme/ThemeContext';

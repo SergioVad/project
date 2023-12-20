@@ -48,6 +48,6 @@
       "./config/storybook/**/*.tsx",
       "**/src/**/*.ts",
       "**/src/**/*.tsx"
-    ],
-  }
+    ]
+}
   
