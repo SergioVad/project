@@ -14,7 +14,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const options: SelectOption[] = [
+const options: SelectOption<string>[] = [
     { content: 'Value №1', value: 'Value №1' },
     { content: 'Value №2', value: 'Value №2' },
     { content: 'Value №3', value: 'Value №3' },

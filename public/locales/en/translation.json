@@ -18,5 +18,8 @@
   "Некорректные данные": "Incorrect data",
   "Ошибка сервера": "Server Error",
   "Статьи": "Articles Pages",
-  "Профайл": "Profile"
+  "Профайл": "Profile",
+  "Комментарии не найдены": "Comments not found",
+  "Список статей": "List of articles"
+
 }

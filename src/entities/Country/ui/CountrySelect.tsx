@@ -12,7 +12,7 @@ interface CountryProps {
     onChange?: (value: ECountry) => void;
 }
 
-const optionCountry: SelectOption[] = Object
+const optionCountry: SelectOption<string>[] = Object
     .entries(ECountry)
     .map((item) => ({ value: item[0], content: item[1] }));
 

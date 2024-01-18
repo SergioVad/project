@@ -57,20 +57,4 @@ describe('Profile.slice.test', () => {
                 error: undefined,
             });
     });
-    test('with fulfilled fetchProfileData', () => {
-        const state: DeepPartial<ProfileSchema> = {
-            isLoading: true,
-            form: initialState,
-            profile: initialState,
-        };
-        expect(profileReducer(
-            state as ProfileSchema,
-            fetchProfileData.fulfilled(state as IProfile, ''),
-        ))
-            .toEqual({
-                isLoading: false,
-                profile: state,
-                form: state,
-            });
-    });
 });

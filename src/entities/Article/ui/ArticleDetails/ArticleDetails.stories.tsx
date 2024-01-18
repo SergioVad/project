@@ -1,10 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { StoreDecorator } from 'shared/config/decorators/StoreDecorator';
 import { Article, ArticleBlocksType, ArticleType } from 'entities/Article/model/types/Article';
-import { ArticleDetails } from './ArticleDetails';
+import { ArticleDetails, reducerArticleDetails } from './ArticleDetails';
+import { ArticleDetailsSchema } from '../../model/types/ArticleDetailsSchema';
 
 const meta = {
-    title: 'entities/ArticleDetails',
+    title: 'entities/Article/ArticleDetails',
     component: ArticleDetails,
     parameters: {
     },
@@ -24,6 +25,10 @@ const data: Article = {
     views: 1022,
     createdAt: '26.02.2022',
     type: [ArticleType.IT],
+    user: {
+        id: '1',
+        username: 'Sergey',
+    },
     blocks: [
         {
             id: '1',
@@ -92,6 +97,26 @@ export const Normal: Story = {
             ArticleDetails: {
                 data,
             },
-        }),
+        }, reducerArticleDetails),
+    ],
+};
+
+export const IsLoading: Story = {
+    decorators: [
+        StoreDecorator({
+            ArticleDetails: {
+                isLoading: true,
+            },
+        }, reducerArticleDetails),
+    ],
+};
+
+export const Error: Story = {
+    decorators: [
+        StoreDecorator({
+            ArticleDetails: {
+                error: 'Ошибка',
+            },
+        }, reducerArticleDetails),
     ],
 };

@@ -1,11 +1,12 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { memo, useState } from 'react';
+import { memo, useMemo, useState } from 'react';
 import { ThemeSwitcher } from 'features/ThemeSwitcher';
 import { LangSwitcher } from 'features/LangSwitcher';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
+import { useSelector } from 'react-redux';
 import cls from './Sidebar.module.scss';
-import { SidebarItemList } from '../../model/sidebarItems';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
+import { getSidebarItems } from '../../model/selectors/getSidebarItams';
 
 interface SidebarProps {
     className?: string;
@@ -16,19 +17,24 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
     const handleToogle = () => {
         setCollapsed((prev) => !prev);
     };
+    const sidebarItems = useSelector(getSidebarItems);
+    const itemsList = useMemo(
+        () => sidebarItems.map((value) => (
+            <SidebarItem
+                item={value}
+                collapsed={collapsed}
+                key={value.path}
+            />
+        )),
+        [sidebarItems, collapsed],
+    );
     return (
-        <div
+        <aside
             data-testid="sidebar"
             className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
         >
             <div className={cls.items}>
-                {SidebarItemList.map((value) => (
-                    <SidebarItem
-                        item={value}
-                        collapsed={collapsed}
-                        key={value.path}
-                    />
-                ))}
+                {itemsList}
             </div>
             <Button
                 data-testid="sidebar-toggle"
@@ -43,11 +49,11 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
             </Button>
             <div className={cls.switchers}>
                 <ThemeSwitcher />
-                <LangSwitcher
+                {/* <LangSwitcher
                     short={collapsed}
                     className={cls.langSwitcherMargin}
-                />
+                /> */}
             </div>
-        </div>
+        </aside>
     );
 });

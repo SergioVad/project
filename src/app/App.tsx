@@ -17,6 +17,7 @@ export function App() {
     const [, setModal] = useState(false);
     useEffect(() => {
         const userData = localStorage.getItem(USER_LOCALSTORAGE_KEY);
+        // 2 Ререндер для модалки из body в app
         setModal(true);
         if (userData) {
             dispatch(userActions.getAuthData(JSON.parse(userData)));

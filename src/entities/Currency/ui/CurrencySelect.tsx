@@ -13,7 +13,7 @@ interface CurrencyProps {
 
 }
 
-const optionCurrency: SelectOption[] = Object
+const optionCurrency: SelectOption<string>[] = Object
     .entries(ECurrency)
     .map((item) => ({ value: item[0], content: item[1] }));
 

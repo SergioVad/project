@@ -5,7 +5,7 @@ import { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { getStateAuthData } from 'entities/User';
 import cls from './SidebarItem.module.scss';
-import { SidebarItemInterface } from '../../model/sidebarItems';
+import { SidebarItemInterface } from '../../model/types/sidebarItems';
 
 interface SidebarItemProps {
     item: SidebarItemInterface;
@@ -15,7 +15,9 @@ interface SidebarItemProps {
 export const SidebarItem = memo((props: SidebarItemProps) => {
     const isAuth = useSelector(getStateAuthData);
     const { item, collapsed } = props;
-    const { t } = useTranslation();
+
+    // Ререндер из за интернационализцации
+    // const { t } = useTranslation();
     const mods: Mods = {
         [cls.collapsed]: collapsed,
     };
@@ -27,7 +29,8 @@ export const SidebarItem = memo((props: SidebarItemProps) => {
             className={classNames(cls.item, mods, [])}
         >
             <item.Icon className={cls.img} />
-            <span className={cls.link}>{t(item.name)}</span>
+            {/* <span className={cls.link}>{t(item.name)}</span> */}
+            <span className={cls.link}>{item.name}</span>
         </AppLink>
     );
 });

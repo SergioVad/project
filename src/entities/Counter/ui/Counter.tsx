@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { memo } from 'react';
 import { CounterActions } from '../model/slice/Counter.slice';
 import { getCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
 
@@ -7,7 +8,7 @@ interface CounterProps {
     className?: string;
 }
 
-export const Counter = ({ className }: CounterProps) => {
+export const Counter = memo(({ className }: CounterProps) => {
     const { t } = useTranslation();
     const dispatch = useDispatch();
     const counter = useSelector(getCounterValue);
@@ -28,4 +29,4 @@ export const Counter = ({ className }: CounterProps) => {
             </button>
         </div>
     );
-};
+});

@@ -29,16 +29,20 @@ export const Input = memo((props: InputProps) => {
         onChange?.(e.target.value);
     };
     return (
-        <label>
-            {label}
-            <input
-                className={classNames(cls.Input, mods, [className])}
-                type={type}
-                onChange={onChangeInput}
-                value={value}
-                readOnly={readOnly}
-                {...otherProps}
-            />
-        </label>
+        <div className={classNames(cls.Input, mods, [className])}>
+        {label && (
+                <div className={cls.label}>
+                    {`${label}>`}
+                </div>
+        )}
+        <input
+            type={type}
+            onChange={onChangeInput}
+            value={value}
+            readOnly={readOnly}
+            {...otherProps}
+        />
+        </div>
+            
     );
 });

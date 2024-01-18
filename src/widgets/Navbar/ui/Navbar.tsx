@@ -19,7 +19,7 @@ export const Navbar = memo((options: NavbarProps) => {
     const userAuthData = useSelector(getStateAuthData);
     const dispatch = useAppDispatch();
     const { className, modal } = options;
-    const { t } = useTranslation();
+    // const { t } = useTranslation();
     const [login, setLogin] = useState<boolean>(false);
     const openModal = useCallback(() => {
         setLogin(true);
@@ -33,19 +33,20 @@ export const Navbar = memo((options: NavbarProps) => {
     }, [dispatch]);
     if (userAuthData) {
         return (
-            <div className={classNames(cls.Navbar, {}, [className])}>
+            <header className={classNames(cls.Navbar, {}, [className])}>
                 <Button
                     className={cls.links}
                     onClick={logout}
                     theme={ButtonTheme.CLEAR_INVERTED}
                 >
-                    {t('Выйти')}
+                    {/* {t('Выйти')} */}
+                    Выйти
                 </Button>
-            </div>
+            </header>
         );
     }
     return (
-        <div className={classNames(cls.Navbar, {}, [className])}>
+        <header className={classNames(cls.Navbar, {}, [className])}>
             {modal
             && (
                 <Portal element={modal}>
@@ -61,8 +62,9 @@ export const Navbar = memo((options: NavbarProps) => {
                 onClick={openModal}
                 theme={ButtonTheme.CLEAR_INVERTED}
             >
-                {t('Войти')}
+                {/* {t('Войти')} */}
+                Выйти
             </Button>
-        </div>
+        </header>
     );
 });

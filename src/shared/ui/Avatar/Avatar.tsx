@@ -3,7 +3,7 @@ import { CSSProperties, memo, useMemo } from 'react';
 import cls from './Avatar.module.scss';
 
 interface AvatarProps {
-    src: string;
+    src?: string;
     alt?: string;
     className?: string;
     size?: number;

@@ -39,8 +39,8 @@ export const Text = memo((props: TextProps) => {
     const additionalClasses: Additional = [cls[theme], cls[align], cls[size], className];
     return (
         <div className={classNames('', {}, additionalClasses)}>
-            {title && <div className={cls.title}>{title}</div>}
-            {text && <div className={cls.text}>{text}</div>}
+            {title && <p className={cls.title}>{title}</p>}
+            {text && <p className={cls.text}>{text}</p>}
         </div>
     );
 });

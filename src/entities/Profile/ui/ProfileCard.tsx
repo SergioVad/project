@@ -6,6 +6,7 @@ import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { CurrencySelect, ECurrency } from 'entities/Currency';
 import { CountrySelect, ECountry } from 'entities/Country';
+import { memo } from 'react';
 import cls from './ProfileCard.module.scss';
 import { IProfile } from '../model/types/ProfileSchema';
 
@@ -24,7 +25,7 @@ interface ProfileCardProps {
     setCountry?: (value: ECountry) => void;
 }
 
-export const ProfileCard = (props: ProfileCardProps) => {
+export const ProfileCard = memo((props: ProfileCardProps) => {
     const {
         className,
         dataProfile,
@@ -124,4 +125,4 @@ export const ProfileCard = (props: ProfileCardProps) => {
             />
         </div>
     );
-};
+});

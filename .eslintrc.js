@@ -74,6 +74,7 @@ module.exports = {
         'react-hooks/exhaustive-deps': 'error',
         'no-undef': 'off',
         'i18n-ally-key-missing': 'off',
+        'react/no-array-index-key': 'off',
     },
     globals: {
         __IS_DEV__: true,

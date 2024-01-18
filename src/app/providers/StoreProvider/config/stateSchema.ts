@@ -4,18 +4,25 @@ import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername';
 import { ProfileSchema } from 'entities/Profile';
 import { AxiosInstance } from 'axios';
-import { NavigateOptions, To } from 'react-router-dom';
 import { ArticleDetailsSchema } from 'entities/Article';
+import { ArticleCommentListSchema } from 'features/ArticleCommentList';
+import { AddCommentFormSchema } from 'features/addCommentForm';
+import { ArticlesPageSchema } from 'pages/ArticlesPage/model/types/ArticlesPageSchema';
+import { IScrollSaveSchema } from 'features/scrollSave';
 import { ReducerManagerProps } from './reducerManager';
 
 export interface StateSchema {
     counter: CounterSchema;
     user: UserSchema;
+    scrollSave: IScrollSaveSchema;
 
     // Асинхронные редюсеры
     login?: LoginSchema;
-    profile?: ProfileSchema
-    ArticleDetails?: ArticleDetailsSchema
+    profile?: ProfileSchema;
+    ArticleDetails?: ArticleDetailsSchema;
+    ArticleCommentList?: ArticleCommentListSchema;
+    addCommentForm?: AddCommentFormSchema;
+    ArticlesPage?: ArticlesPageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema
@@ -26,7 +33,6 @@ export interface ReduxStoreWithReducerManager extends ToolkitStore<StateSchema> 
 
 export interface ThunkExtraArg {
     api: AxiosInstance,
-    navigate?: (to: To, options?: NavigateOptions) => void,
 }
 
 export interface ThunkConfig<T> {

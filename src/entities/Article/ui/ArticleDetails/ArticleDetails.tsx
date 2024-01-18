@@ -28,7 +28,7 @@ interface ArticleDetailsProps {
   id?: string
 }
 
-const reducer: ReducersList = {
+export const reducerArticleDetails: ReducersList = {
     ArticleDetails: ArticleDetailsReducer,
 };
 
@@ -103,7 +103,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         );
     }
     return (
-        <DynamicReducerLoader reducers={reducer} removeAfterUnmount>
+        <DynamicReducerLoader reducers={reducerArticleDetails} removeAfterUnmount>
             <div className={classNames(cls.ArticleDetails, {}, [className])}>
                 {content}
             </div>

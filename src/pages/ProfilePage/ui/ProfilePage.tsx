@@ -12,13 +12,15 @@ import {
     profileActions,
     profileReducer,
 } from 'entities/Profile';
-import { useCallback, useEffect } from 'react';
+import { memo, useCallback, useEffect } from 'react';
 import { DynamicReducerLoader, ReducersList } from 'shared/lib/dynamicReducerLoader/dynamicReducerLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { ECurrency } from 'entities/Currency';
 import { ECountry } from 'entities/Country';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { useParams } from 'react-router-dom';
+import { Page } from 'widgets/Page/Page';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 // import cls from './ProfilePage.module.scss';
 
@@ -37,6 +39,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     const error = useSelector(getProfileError);
     const readonly = useSelector(getProfileReadonly);
     const ValidateErrorsSelector = useSelector(getProfileValidateErrors);
+    const { id } = useParams<{id: string}>();
     const setFirstName = useCallback((value?: string) => {
         dispatch(profileActions.updateData({ firstname: value }));
     }, [dispatch]);
@@ -60,10 +63,10 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     }, [dispatch]);
     const { t } = useTranslation();
     useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchProfileData());
+        if (__PROJECT__ === 'frontend' && id) {
+            dispatch(fetchProfileData(id));
         }
-    }, [dispatch]);
+    }, [dispatch, id]);
     const translationValidateErrors = {
         [ValidateErrors.INCORRECT_USERNAME]: t('Некорректное имя или фамилия'),
         [ValidateErrors.INCORRECT_AGE]: t('Некорректный возраст'),
@@ -72,7 +75,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     };
     return (
         <DynamicReducerLoader reducers={reducersProfilePage} removeAfterUnmount>
-            <div className={classNames('', {}, [className])}>
+            <Page className={classNames('', {}, [className])}>
                 <ProfilePageHeader />
                 {ValidateErrorsSelector?.length && ValidateErrorsSelector.map((item) => (
                     <Text
@@ -94,9 +97,9 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
                     setCurrency={setCurrency}
                     setCountry={setCountry}
                 />
-            </div>
+            </Page>
         </DynamicReducerLoader>
     );
 };
 
-export default ProfilePage;
+export default memo(ProfilePage);
