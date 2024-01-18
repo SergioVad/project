@@ -10,3 +10,4 @@ export { Article, ArticlesView } from './model/types/Article';
 export type { ArticleDetailsSchema } from './model/types/ArticleDetailsSchema';
 export { ArticleViewSelector } from './ui/ArticleViewSelector/ArticleViewSelector';
 export { ArticleSortSelect } from './ui/ArticleSortSelect/ArticleSortSelect';
+export { ArticleTypeTabs } from './ui/ArticleTypeTabs/ArticleTypeTabs';

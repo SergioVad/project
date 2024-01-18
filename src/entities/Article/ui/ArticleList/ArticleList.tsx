@@ -1,6 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 
 import { memo } from 'react';
+import { Text, TextSize } from 'shared/ui/Text/Text';
 import cls from './ArticleList.module.scss';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { Article, ArticlesView } from '../../model/types/Article';
@@ -34,6 +35,13 @@ export const ArticleList = memo((props: ArticleListProps) => {
             className={cls.card}
         />
     );
+    if (!isLoading && articles && !articles.length) {
+        return (
+            <div className={classNames('', {}, [className, cls[view]])}>
+                <Text size={TextSize.SIZE_L} text="Статьи не найдены" />
+            </div>
+        );
+    }
 
     return (
         <div className={classNames('', {}, [className, cls[view]])}>

@@ -45,16 +45,16 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
         dispatch(fetchNextArticles());
     };
     return (
-        <DynamicReducerLoader reducers={reducerArticlesPage} removeAfterUnmount={false}>
-            <Page onScrollEnd={onScrollEnd} className={classNames('', {}, [className])}>
+        <Page onScrollEnd={onScrollEnd} className={classNames('', {}, [className])}>
+            <DynamicReducerLoader reducers={reducerArticlesPage} removeAfterUnmount={false}>
                 <ArticlesPageFilters />
                 <ArticleList
                     view={view}
                     isLoading={isLoading}
                     articles={articles}
                 />
-            </Page>
-        </DynamicReducerLoader>
+            </DynamicReducerLoader>
+        </Page>
     );
 };
 

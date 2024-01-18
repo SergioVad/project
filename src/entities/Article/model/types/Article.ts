@@ -1,6 +1,7 @@
 import { User } from 'entities/User';
 
 export enum ArticleType {
+    ALL = 'all',
     IT = 'IT',
     ECONOMICS = 'ECONOMICS',
     SCIENCE = 'SCIENCE'

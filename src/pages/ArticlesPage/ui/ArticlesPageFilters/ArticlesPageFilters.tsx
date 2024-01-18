@@ -1,9 +1,9 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
-    ArticleSortSelect, ArticleViewSelector, ArticlesView, sortByEntities,
+    ArticleSortSelect, ArticleType, ArticleTypeTabs, ArticleViewSelector, ArticlesView, sortByEntities,
 } from 'entities/Article';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
@@ -13,6 +13,7 @@ import { Input } from 'shared/ui/Input/Input';
 import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticlesList';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
 import { useSearchParams } from 'react-router-dom';
+import { TabItem } from 'shared/ui/Tabs/Tabs';
 import { ArticlesPageActions } from '../../model/slices/ArticlesPage.slice';
 
 import cls from './ArticlesPageFilters.module.scss';
@@ -20,6 +21,7 @@ import {
     getArticlesOrder,
     getArticlesSearch,
     getArticlesSort,
+    getArticlesType,
     getArticlesView,
 } from '../../model/selectors/ArticlesPageSelectors';
 
@@ -41,6 +43,7 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
         dispatch(fetchArticlesList({ replace: true, searchParams }));
     }, [dispatch, searchParams]);
     const debouncedFetchData = useDebounce(fetchData, 500);
+    const type = useSelector(getArticlesType);
 
     const onChangeOrderSelect = useCallback((value: TSortOrder) => {
         dispatch(ArticlesPageActions.setOrder(value));
@@ -57,12 +60,17 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
         debouncedFetchData();
     }, [dispatch, debouncedFetchData]);
 
+    const onTabClick = useCallback((tab: TabItem) => {
+        dispatch(ArticlesPageActions.setType(tab.value as ArticleType));
+        fetchData();
+    }, [dispatch, fetchData]);
+
     const articlesOrderSelector = useSelector(getArticlesOrder);
     const articlesSortSelector = useSelector(getArticlesSort);
     const articlesSortSearch = useSelector(getArticlesSearch);
     return (
         <div className={classNames('', {}, [className])}>
-            <div className={cls.wrapper}>
+            <div className={cls.sortWrapper}>
                 <ArticleSortSelect
                     entitiesSelect={articlesSortSelector}
                     orderSelect={articlesOrderSelector}
@@ -78,6 +86,7 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
                     label={t('Поиск')}
                 />
             </Card>
+            <ArticleTypeTabs onTabClick={onTabClick} value={type} />
         </div>
     );
 });

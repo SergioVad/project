@@ -63,7 +63,7 @@ export const Navbar = memo((options: NavbarProps) => {
                 theme={ButtonTheme.CLEAR_INVERTED}
             >
                 {/* {t('Войти')} */}
-                Выйти
+                Войти
             </Button>
         </header>
     );

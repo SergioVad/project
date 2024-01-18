@@ -19,7 +19,7 @@ export const Primary: Story = {
     args: {
         tabs: [
             {
-                value: '1',
+                value: 'tab 1',
                 content: 'tab 1',
             },
             {
