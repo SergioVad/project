@@ -25,7 +25,7 @@ import { ArticleImageBlock } from '../ArticleImageBlock/ArticleImageBlock';
 
 interface ArticleDetailsProps {
   className?: string;
-  id?: string
+  id: string
 }
 
 export const reducerArticleDetails: ReducersList = {
@@ -88,7 +88,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                     className={cls.title}
                     title={article.title}
                     text={article.subtitle}
-                    size={TextSize.SIZE_L}
+                    size={TextSize.L}
                 />
                 <div className={cls.articleInfo}>
                     <Icon Img={EyeIcon} className={cls.icon} />

@@ -9,6 +9,7 @@ import { ArticleCommentListSchema } from 'features/ArticleCommentList';
 import { AddCommentFormSchema } from 'features/addCommentForm';
 import { ArticlesPageSchema } from 'pages/ArticlesPage/model/types/ArticlesPageSchema';
 import { IScrollSaveSchema } from 'features/scrollSave';
+import { ArticleDetailsRecommendationsSchema } from 'pages/ArticleDetailsPage';
 import { ReducerManagerProps } from './reducerManager';
 
 export interface StateSchema {
@@ -23,6 +24,7 @@ export interface StateSchema {
     ArticleCommentList?: ArticleCommentListSchema;
     addCommentForm?: AddCommentFormSchema;
     ArticlesPage?: ArticlesPageSchema;
+    ArticleDetailsRecommendations?: ArticleDetailsRecommendationsSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema

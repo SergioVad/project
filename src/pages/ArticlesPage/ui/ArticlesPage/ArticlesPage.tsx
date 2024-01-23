@@ -13,7 +13,7 @@ import {
     getArticlesPage,
 } from '../../model/slices/ArticlesPage.slice';
 import {
-    getArticlesError, getArticlesInited, getArticlesIsLoading, getArticlesNum, getArticlesView,
+    getArticlesError, getArticlesIsLoading, getArticlesView,
 } from '../../model/selectors/ArticlesPageSelectors';
 import { fetchNextArticles } from '../../model/services/fetchNextArticles';
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
@@ -32,9 +32,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
     const dispatch = useAppDispatch();
     const articles = useSelector(getArticlesPage.selectAll);
     const error = useSelector(getArticlesError);
-    const page = useSelector(getArticlesNum);
     const isLoading = useSelector(getArticlesIsLoading);
-    const inited = useSelector(getArticlesInited);
     const view = useSelector(getArticlesView);
     const [searchParams] = useSearchParams();
 

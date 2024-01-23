@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 
-import { memo } from 'react';
+import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { Text, TextSize } from 'shared/ui/Text/Text';
 import cls from './ArticleList.module.scss';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
@@ -12,6 +12,7 @@ interface ArticleListProps {
     className?: string;
     view: ArticlesView;
     isLoading?: boolean;
+    target?: HTMLAttributeAnchorTarget;
 }
 
 const getSkeletons = (view: ArticlesView) => new Array(view === ArticlesView.SMALL ? 9 : 3)
@@ -25,6 +26,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
         articles,
         view,
         isLoading,
+        target,
     } = props;
 
     const renderArticle = (article: Article) => (
@@ -33,12 +35,13 @@ export const ArticleList = memo((props: ArticleListProps) => {
             view={view}
             key={article.id}
             className={cls.card}
+            target={target}
         />
     );
     if (!isLoading && articles && !articles.length) {
         return (
             <div className={classNames('', {}, [className, cls[view]])}>
-                <Text size={TextSize.SIZE_L} text="Статьи не найдены" />
+                <Text size={TextSize.L} text="Статьи не найдены" />
             </div>
         );
     }

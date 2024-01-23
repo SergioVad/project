@@ -8,6 +8,9 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getStateAuthData, userActions } from 'entities/User';
 import { useSelector } from 'react-redux';
 import { USER_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -19,7 +22,7 @@ export const Navbar = memo((options: NavbarProps) => {
     const userAuthData = useSelector(getStateAuthData);
     const dispatch = useAppDispatch();
     const { className, modal } = options;
-    // const { t } = useTranslation();
+    const { t } = useTranslation();
     const [login, setLogin] = useState<boolean>(false);
     const openModal = useCallback(() => {
         setLogin(true);
@@ -34,13 +37,23 @@ export const Navbar = memo((options: NavbarProps) => {
     if (userAuthData) {
         return (
             <header className={classNames(cls.Navbar, {}, [className])}>
+                <Text
+                    className={cls.appName}
+                    title={t('App')}
+                    theme={TextTheme.INVERTED}
+                />
+                <AppLink
+                    to={RoutePath.article_create}
+                    theme={AppLinkTheme.SECONDARY}
+                >
+                    {t('Создать статью')}
+                </AppLink>
                 <Button
                     className={cls.links}
                     onClick={logout}
                     theme={ButtonTheme.CLEAR_INVERTED}
                 >
-                    {/* {t('Выйти')} */}
-                    Выйти
+                    {t('Выйти')}
                 </Button>
             </header>
         );
@@ -62,8 +75,7 @@ export const Navbar = memo((options: NavbarProps) => {
                 onClick={openModal}
                 theme={ButtonTheme.CLEAR_INVERTED}
             >
-                {/* {t('Войти')} */}
-                Войти
+                {t('Войти')}
             </Button>
         </header>
     );

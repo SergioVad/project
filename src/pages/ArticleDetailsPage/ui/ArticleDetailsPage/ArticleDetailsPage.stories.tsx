@@ -4,8 +4,7 @@ import {
 } from 'entities/Article';
 import { StoreDecorator } from 'shared/config/decorators/StoreDecorator';
 import { reducerArticleDetails } from 'entities/Article/ui/ArticleDetails/ArticleDetails';
-import { reactRouterParameters, withRouter } from 'storybook-addon-react-router-v6';
-import { RouterDecorator } from 'shared/config/decorators/RouterDecorator';
+import { reactRouterParameters } from 'storybook-addon-react-router-v6';
 import ArticleDetailsPage from './ArticleDetailsPage';
 
 const meta = {

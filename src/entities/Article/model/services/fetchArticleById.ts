@@ -1,14 +1,16 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import type { ThunkConfig } from 'app/providers/StoreProvider/config/stateSchema';
 import { AppRoutes, RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { ThunkConfig } from 'app/providers/StoreProvider';
 import { Article } from '../types/Article';
 
-export const fetchArticleById = createAsyncThunk<Article, string | undefined, ThunkConfig<string>>(
+export const fetchArticleById = createAsyncThunk<Article, string, ThunkConfig<string>>(
     'Article/fetchArticleById',
     async (id, thunkAPI) => {
         const { rejectWithValue, extra } = thunkAPI;
         try {
-            const response = await extra.api.get<Article>(`${RoutePath[AppRoutes.ARTICLE_DETAILS]}${id}`);
+            const response = await extra.api.get<Article>(`${RoutePath[AppRoutes.ARTICLE_DETAILS]}${id}`, {
+                params: { _expand: 'user' },
+            });
             if (!response.data) {
                 throw new Error();
             }

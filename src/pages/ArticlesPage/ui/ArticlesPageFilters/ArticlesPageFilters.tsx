@@ -86,7 +86,11 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
                     label={t('Поиск')}
                 />
             </Card>
-            <ArticleTypeTabs onTabClick={onTabClick} value={type} />
+            <ArticleTypeTabs
+                onTabClick={onTabClick}
+                value={type}
+                className={cls.tabs}
+            />
         </div>
     );
 });

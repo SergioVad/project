@@ -75,6 +75,7 @@ module.exports = {
         'no-undef': 'off',
         'i18n-ally-key-missing': 'off',
         'react/no-array-index-key': 'off',
+        'arrow-body-style': 'off',
     },
     globals: {
         __IS_DEV__: true,

@@ -85,7 +85,7 @@ export const ErrorDarkOnlyText : Story = {
 
 export const TitleAndTextL : Story = {
     args: {
-        size: TextSize.SIZE_L,
+        size: TextSize.L,
         title: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.Id amet facilis quia aliquid, delectusmagnam quibusdam obcaecati officiisx provident dolor ut doloresipsam rerum sapiente quaerat non unde illum tempora.',",
         text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.Id amet facilis quia aliquid, delectusmagnam quibusdam obcaecati officiisx provident dolor ut doloresipsam rerum sapiente quaerat non unde illum tempora.',",
     },

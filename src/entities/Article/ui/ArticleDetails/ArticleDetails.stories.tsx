@@ -92,6 +92,9 @@ const data: Article = {
 };
 
 export const Normal: Story = {
+    args: {
+        id: '1',
+    },
     decorators: [
         StoreDecorator({
             ArticleDetails: {
@@ -102,6 +105,9 @@ export const Normal: Story = {
 };
 
 export const IsLoading: Story = {
+    args: {
+        id: '1',
+    },
     decorators: [
         StoreDecorator({
             ArticleDetails: {
@@ -112,6 +118,9 @@ export const IsLoading: Story = {
 };
 
 export const Error: Story = {
+    args: {
+        id: '1',
+    },
     decorators: [
         StoreDecorator({
             ArticleDetails: {
