@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { StoreDecorator } from 'shared/config/decorators/StoreDecorator';
-import { Article, ArticleBlocksType, ArticleType } from 'entities/Article/model/types/Article';
 import { ArticleDetails, reducerArticleDetails } from './ArticleDetails';
-import { ArticleDetailsSchema } from '../../model/types/ArticleDetailsSchema';
+import { Article } from '../../model/types/Article';
+import { ArticleBlocksType, ArticleType } from '../../model/const/const';
 
 const meta = {
     title: 'entities/Article/ArticleDetails',
@@ -28,6 +28,7 @@ const data: Article = {
     user: {
         id: '1',
         username: 'Sergey',
+        role: ['USER'],
     },
     blocks: [
         {

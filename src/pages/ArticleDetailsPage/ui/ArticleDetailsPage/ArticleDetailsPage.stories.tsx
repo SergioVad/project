@@ -31,6 +31,7 @@ const data: Article = {
     user: {
         id: '1',
         username: 'Sergey',
+        role: ['USER'],
     },
     blocks: [
         {

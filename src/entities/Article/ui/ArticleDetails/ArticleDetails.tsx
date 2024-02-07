@@ -18,10 +18,11 @@ import {
 } from '../../model/selectors/getArticleSelectors';
 import { ArticleDetailsReducer } from '../../model/slice/ArticleDetails.slice';
 import cls from './ArticleDetails.module.scss';
-import { ArticleBlock, ArticleBlocksType } from '../../model/types/Article';
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
 import { ArticleCodeBlock } from '../ArticleCodeBlock/ArticleCodeBlock';
 import { ArticleImageBlock } from '../ArticleImageBlock/ArticleImageBlock';
+import { ArticleBlock } from '../../model/types/Article';
+import { ArticleBlocksType } from '../../model/const/const';
 
 interface ArticleDetailsProps {
   className?: string;

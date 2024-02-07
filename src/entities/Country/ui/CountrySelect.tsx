@@ -1,8 +1,9 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 
 import { useTranslation } from 'react-i18next';
-import { Select, SelectOption } from 'shared/ui/Select/Select';
+import { SelectOption } from 'shared/ui/Select/Select';
 import { memo, useCallback } from 'react';
+import { ListBox } from 'shared/ui/ListBox/ListBox';
 import { ECountry } from '../model/types/CountryTypes';
 
 interface CountryProps {
@@ -26,13 +27,15 @@ export const CountrySelect = memo(
             onChange?.(value as ECountry);
         }, [onChange]);
         return (
-            <Select
-                label={t('vyberite-stranu')}
+            <ListBox
                 className={classNames('', {}, [className])}
-                options={optionCountry}
-                value={value}
+                items={optionCountry}
+                disabled={readOnly}
                 onChange={onChahgeHandler}
-                readOnly={readOnly}
+                defaultValue="Укажите Страну"
+                label="Укажите Страну> "
+                value={value}
+                direction="top right"
             />
         );
     },

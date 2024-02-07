@@ -16,7 +16,9 @@ const renderWithWrapper = (route: AppRoutesProps) => {
         <Route
             key={route.path}
             path={route.path}
-            element={route.AuthOnly ? <RequireAuth>{element}</RequireAuth> : element}
+            element={route.AuthOnly
+                ? <RequireAuth roles={route.roles}>{element}</RequireAuth>
+                : element}
         />
     );
 };

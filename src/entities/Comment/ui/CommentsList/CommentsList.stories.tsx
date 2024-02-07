@@ -20,12 +20,12 @@ export const Primary: Story = {
             {
                 id: '1',
                 text: 'hello world',
-                user: { id: '1', username: 'Vasya' },
+                user: { id: '1', username: 'Vasya', role: ['USER'] },
             },
             {
                 id: '2',
                 text: 'Comment 2',
-                user: { id: '1', username: 'Petya' },
+                user: { id: '1', username: 'Petya', role: ['USER'] },
             },
         ],
     },

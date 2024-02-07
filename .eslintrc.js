@@ -46,6 +46,7 @@ module.exports = {
         'i18n',
         'jest',
         'react-hooks',
+        'sergio-plugin',
     ],
     rules: {
         'react/jsx-indent': [2, 4],
@@ -76,6 +77,7 @@ module.exports = {
         'i18n-ally-key-missing': 'off',
         'react/no-array-index-key': 'off',
         'arrow-body-style': 'off',
+        'sergio-plugin/path-checker': 'error',
     },
     globals: {
         __IS_DEV__: true,

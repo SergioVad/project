@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { Select, SelectOption } from 'shared/ui/Select/Select';
 import { TSortOrder } from 'shared/types/SortOrder';
 import cls from './ArticleSortSelect.module.scss';
-import { sortByEntities } from '../../model/types/Article';
+import { sortByEntities } from '../../model/const/const';
 
 interface ArticleSortSelectProps {
     className?: string;

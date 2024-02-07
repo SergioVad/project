@@ -7,6 +7,7 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { CurrencySelect, ECurrency } from 'entities/Currency';
 import { CountrySelect, ECountry } from 'entities/Country';
 import { memo } from 'react';
+import { VStack } from 'shared/ui/Stack/VStack/VStack';
 import cls from './ProfileCard.module.scss';
 import { IProfile } from '../model/types/ProfileSchema';
 
@@ -64,7 +65,10 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
         );
     }
     return (
-        <div className={classNames(cls.ProfileCard, mods, [className])}>
+        <VStack
+            gap="16"
+            className={classNames(cls.ProfileCard, mods, [className])}
+        >
             {dataProfile?.avatar
                 && (
                     <div className={cls.wrapper}>
@@ -112,17 +116,15 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
                 onChange={setUsername}
             />
             <CurrencySelect
-                className={cls.input}
                 value={dataProfile?.currency}
                 onChange={setCurrency}
                 readOnly={readonly}
             />
             <CountrySelect
-                className={cls.input}
                 value={dataProfile?.country}
                 onChange={setCountry}
                 readOnly={readonly}
             />
-        </div>
+        </VStack>
     );
 });

@@ -1,9 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { Comment } from 'entities/Comment';
 import { getStateAuthData } from 'entities/User';
-import { getArticleData } from 'entities/Article/model/selectors/getArticleSelectors';
-import { fetchArticleComments } from 'features/ArticleCommentList/model/services/fetchArticleComments';
+// import { fetchArticleComments } from 'features/ArticleCommentList/model/services/fetchArticleComments';
 import { ThunkConfig } from 'app/providers/StoreProvider';
+import { getArticleData } from 'entities/Article';
 
 export const AddCommentForArticle = createAsyncThunk<Comment, string, ThunkConfig<string>>(
     'articleDetails/AddCommentForArticle',
@@ -26,7 +26,7 @@ export const AddCommentForArticle = createAsyncThunk<Comment, string, ThunkConfi
             if (!response.data) {
                 throw new Error();
             }
-            dispatch(fetchArticleComments(article.id));
+            // dispatch(fetchArticleComments(article.id));
             return response.data;
         } catch (error) {
             return rejectWithValue('error');

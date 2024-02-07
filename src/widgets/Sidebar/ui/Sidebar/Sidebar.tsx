@@ -4,6 +4,7 @@ import { ThemeSwitcher } from 'features/ThemeSwitcher';
 import { LangSwitcher } from 'features/LangSwitcher';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
+import { VStack } from 'shared/ui/Stack/VStack/VStack';
 import cls from './Sidebar.module.scss';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import { getSidebarItems } from '../../model/selectors/getSidebarItams';
@@ -29,13 +30,13 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
         [sidebarItems, collapsed],
     );
     return (
-        <aside
+        <section
             data-testid="sidebar"
             className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
         >
-            <div className={cls.items}>
+            <VStack Tag="nav" className={cls.items}>
                 {itemsList}
-            </div>
+            </VStack>
             <Button
                 data-testid="sidebar-toggle"
                 type="button"
@@ -54,6 +55,6 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
                     className={cls.langSwitcherMargin}
                 /> */}
             </div>
-        </aside>
+        </section>
     );
 });

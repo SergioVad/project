@@ -5,13 +5,20 @@ import { memo, useCallback, useState } from 'react';
 import { Portal } from 'shared/ui/Portal/Portal';
 import { LoginModal } from 'features/AuthByUsername';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { getStateAuthData, userActions } from 'entities/User';
+import {
+    getStateAuthData, getStateIsAdminRole, getStateIsManagerRole, userActions,
+} from 'entities/User';
 import { useSelector } from 'react-redux';
 import { USER_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { HStack } from 'shared/ui/Stack/HStack/HStack';
+import { Icon } from 'shared/ui/Icon/Icon';
 import cls from './Navbar.module.scss';
+import IconNotification from '../assets/image/notification.svg';
 
 interface NavbarProps {
     className?: string;
@@ -34,6 +41,9 @@ export const Navbar = memo((options: NavbarProps) => {
         dispatch(userActions.logout());
         localStorage.removeItem(USER_LOCALSTORAGE_KEY);
     }, [dispatch]);
+    const isAdmin = useSelector(getStateIsAdminRole);
+    const isManager = useSelector(getStateIsManagerRole);
+    const isAdminPanelAvailabel = isAdmin || isManager;
     if (userAuthData) {
         return (
             <header className={classNames(cls.Navbar, {}, [className])}>
@@ -48,13 +58,37 @@ export const Navbar = memo((options: NavbarProps) => {
                 >
                     {t('Создать статью')}
                 </AppLink>
-                <Button
-                    className={cls.links}
-                    onClick={logout}
-                    theme={ButtonTheme.CLEAR_INVERTED}
+                <HStack
+                    gap="16"
+                    className={cls.actions}
                 >
-                    {t('Выйти')}
-                </Button>
+                    <Button theme={ButtonTheme.CLEAR}>
+                        <Icon Img={IconNotification} inverted />
+                    </Button>
+                    <Dropdown
+                        direction="bottom left"
+                        trigger={(
+                            <Avatar
+                                size={50}
+                                src={userAuthData.avatar}
+                            />
+                        )}
+                        items={[
+                            ...(isAdminPanelAvailabel ? [{
+                                content: 'Админ',
+                                href: RoutePath.admin_panel,
+                            }] : []),
+                            {
+                                content: 'Выйти',
+                                onClick: logout,
+                            },
+                            {
+                                content: 'Профиль',
+                                href: `${RoutePath.profile}${userAuthData.id}`,
+                            },
+                        ]}
+                    />
+                </HStack>
             </header>
         );
     }

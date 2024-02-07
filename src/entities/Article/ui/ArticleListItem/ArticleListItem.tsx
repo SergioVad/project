@@ -10,11 +10,10 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
-import {
-    Article, ArticleBlocksType, IArticleTextBlock, ArticlesView,
-} from '../../model/types/Article';
 import cls from './ArticleListItem.module.scss';
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
+import { Article, IArticleTextBlock } from '../../model/types/Article';
+import { ArticleBlocksType, ArticlesView } from '../../model/const/const';
 
 interface ArticleListItemProps {
     className?: string;

@@ -7,7 +7,7 @@ import { CommentCard } from '../CommentCard/CommentCard';
 
 interface CommentsListProps {
     className?: string;
-    comments: Comment[];
+    comments?: Comment[];
     isLoading?: boolean;
 }
 
@@ -26,7 +26,7 @@ export const CommentsList = memo((props: CommentsListProps) => {
     }
     return (
         <div className={classNames(cls.CommentsList, {}, [className])}>
-            {comments.length
+            {comments && comments.length
                 ? comments.map((comment) => (
                     <CommentCard
                         key={comment.id}

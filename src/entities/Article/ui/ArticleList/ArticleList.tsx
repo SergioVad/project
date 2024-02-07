@@ -4,13 +4,14 @@ import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { Text, TextSize } from 'shared/ui/Text/Text';
 import cls from './ArticleList.module.scss';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
-import { Article, ArticlesView } from '../../model/types/Article';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
+import { ArticlesView } from '../../model/const/const';
+import { Article } from '../../model/types/Article';
 
 interface ArticleListProps {
     articles?: Article[];
     className?: string;
-    view: ArticlesView;
+    view?: ArticlesView;
     isLoading?: boolean;
     target?: HTMLAttributeAnchorTarget;
 }
@@ -24,7 +25,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
     const {
         className,
         articles,
-        view,
+        view = ArticlesView.SMALL,
         isLoading,
         target,
     } = props;

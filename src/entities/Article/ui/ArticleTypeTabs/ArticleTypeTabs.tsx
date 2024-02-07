@@ -2,7 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { TabItem, Tabs } from 'shared/ui/Tabs/Tabs';
 
 import { memo } from 'react';
-import { ArticleType } from 'entities/Article/model/types/Article';
+import { ArticleType } from '../../model/const/const';
 // import cls from './ArticleTypeTabs.module.scss';
 
 const typeTabs: TabItem[] = [

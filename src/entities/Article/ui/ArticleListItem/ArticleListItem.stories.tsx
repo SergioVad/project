@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ArticleListItem } from './ArticleListItem';
-import { Article, ArticlesView } from '../../model/types/Article';
+import { ArticlesView } from '../../model/const/const';
+import { Article } from '../../model/types/Article';
 
 const meta = {
     title: 'entities/Article/ArticleListItem',

@@ -7,6 +7,7 @@ import cls from './Select.module.scss';
 export interface SelectOption<T extends string>{
     value: T;
     content: string;
+    disabled?: boolean;
 }
 
 interface SelectProps<T extends string> {

@@ -8,17 +8,19 @@ import { App } from './app/App';
 import 'app/styles/index.scss';
 
 const rootElement = document.getElementById('root');
-if (rootElement) {
-    const root = ReactDom.createRoot(rootElement);
-    root.render(
-        <BrowserRouter>
-            <StoreProvider>
-                <ErrorBoundary>
-                    <ThemeProvider>
-                        <App />
-                    </ThemeProvider>
-                </ErrorBoundary>
-            </StoreProvider>
-        </BrowserRouter>,
-    );
+
+if (!rootElement) {
+    throw new Error('Контейнер rootElement не найден. Не удалось вмонтировать реакт приложение');
 }
+const root = ReactDom.createRoot(rootElement);
+root.render(
+    <BrowserRouter>
+        <StoreProvider>
+            <ErrorBoundary>
+                <ThemeProvider>
+                    <App />
+                </ThemeProvider>
+            </ErrorBoundary>
+        </StoreProvider>
+    </BrowserRouter>,
+);
