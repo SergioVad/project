@@ -1,7 +1,8 @@
 /* eslint-disable */
-import { Mods, classNames } from 'shared/lib/classNames/classNames';
+import { Mods, classNames } from '@/shared/lib/classNames/classNames';
 import { ChangeEvent, InputHTMLAttributes, memo } from 'react';
 import cls from './Input.module.scss';
+import { HStack } from '../Stack/HStack/HStack';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
 
@@ -29,7 +30,7 @@ export const Input = memo((props: InputProps) => {
         onChange?.(e.target.value);
     };
     return (
-        <div className={classNames(cls.Input, mods, [className])}>
+        <HStack gap='4' className={classNames(cls.Input, mods, [className])}>
         {label && (
                 <div className={cls.label}>
                     {`${label}>`}
@@ -42,7 +43,6 @@ export const Input = memo((props: InputProps) => {
             readOnly={readOnly}
             {...otherProps}
         />
-        </div>
-            
+        </HStack>
     );
 });

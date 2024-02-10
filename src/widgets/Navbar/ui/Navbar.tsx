@@ -1,24 +1,18 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { memo, useCallback, useState } from 'react';
-import { Portal } from 'shared/ui/Portal/Portal';
-import { LoginModal } from 'features/AuthByUsername';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import {
-    getStateAuthData, getStateIsAdminRole, getStateIsManagerRole, userActions,
-} from 'entities/User';
 import { useSelector } from 'react-redux';
-import { USER_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
-import { Text, TextTheme } from 'shared/ui/Text/Text';
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { HStack } from 'shared/ui/Stack/HStack/HStack';
-import { Icon } from 'shared/ui/Icon/Icon';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { Portal } from '@/shared/ui/Portal/Portal';
+import { LoginModal } from '@/features/AuthByUsername';
+import { getStateAuthData } from '@/entities/User';
+import { Text, TextTheme } from '@/shared/ui/Text/Text';
+import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink/AppLink';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { HStack } from '@/shared/ui/Stack/HStack/HStack';
+import { PopoverNotifications } from '@/features/PopoverNotifications';
+import { DropdownAvatar } from '@/features/DropdownAvatar';
 import cls from './Navbar.module.scss';
-import IconNotification from '../assets/image/notification.svg';
 
 interface NavbarProps {
     className?: string;
@@ -27,7 +21,6 @@ interface NavbarProps {
 
 export const Navbar = memo((options: NavbarProps) => {
     const userAuthData = useSelector(getStateAuthData);
-    const dispatch = useAppDispatch();
     const { className, modal } = options;
     const { t } = useTranslation();
     const [login, setLogin] = useState<boolean>(false);
@@ -37,13 +30,6 @@ export const Navbar = memo((options: NavbarProps) => {
     const closeModal = useCallback(() => {
         setLogin(false);
     }, []);
-    const logout = useCallback(() => {
-        dispatch(userActions.logout());
-        localStorage.removeItem(USER_LOCALSTORAGE_KEY);
-    }, [dispatch]);
-    const isAdmin = useSelector(getStateIsAdminRole);
-    const isManager = useSelector(getStateIsManagerRole);
-    const isAdminPanelAvailabel = isAdmin || isManager;
     if (userAuthData) {
         return (
             <header className={classNames(cls.Navbar, {}, [className])}>
@@ -54,7 +40,7 @@ export const Navbar = memo((options: NavbarProps) => {
                 />
                 <AppLink
                     to={RoutePath.article_create}
-                    theme={AppLinkTheme.SECONDARY}
+                    theme={AppLinkTheme.SECONDARY_INVERTED}
                 >
                     {t('Создать статью')}
                 </AppLink>
@@ -62,32 +48,8 @@ export const Navbar = memo((options: NavbarProps) => {
                     gap="16"
                     className={cls.actions}
                 >
-                    <Button theme={ButtonTheme.CLEAR}>
-                        <Icon Img={IconNotification} inverted />
-                    </Button>
-                    <Dropdown
-                        direction="bottom left"
-                        trigger={(
-                            <Avatar
-                                size={50}
-                                src={userAuthData.avatar}
-                            />
-                        )}
-                        items={[
-                            ...(isAdminPanelAvailabel ? [{
-                                content: 'Админ',
-                                href: RoutePath.admin_panel,
-                            }] : []),
-                            {
-                                content: 'Выйти',
-                                onClick: logout,
-                            },
-                            {
-                                content: 'Профиль',
-                                href: `${RoutePath.profile}${userAuthData.id}`,
-                            },
-                        ]}
-                    />
+                    <PopoverNotifications />
+                    <DropdownAvatar />
                 </HStack>
             </header>
         );

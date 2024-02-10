@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { reactRouterParameters } from 'storybook-addon-react-router-v6';
 import {
     Article, ArticleBlocksType, ArticleType,
-} from 'entities/Article';
-import { StoreDecorator } from 'shared/config/decorators/StoreDecorator';
-import { reducerArticleDetails } from 'entities/Article/ui/ArticleDetails/ArticleDetails';
-import { reactRouterParameters } from 'storybook-addon-react-router-v6';
+} from '@/entities/Article';
+import { StoreDecorator } from '@/shared/config/decorators/StoreDecorator';
+import { reducerArticleDetails } from '@/entities/Article/ui/ArticleDetails/ArticleDetails';
 import ArticleDetailsPage from './ArticleDetailsPage';
 
 const meta = {

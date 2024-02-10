@@ -1,6 +1,6 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { getStateAuthData } from 'entities/User';
-import { AppRoutes, RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { getStateAuthData } from '@/entities/User';
+import { AppRoutes, RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { SidebarItemInterface } from '../types/sidebarItems';
 import AboutIcon from '../../assets/image/main.svg';
 import MainIcon from '../../assets/image/about.svg';

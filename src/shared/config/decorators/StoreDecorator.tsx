@@ -1,6 +1,6 @@
 import { ReducersMapObject } from '@reduxjs/toolkit';
 import { StoryFn } from '@storybook/react';
-import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
+import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
 
 export const StoreDecorator = (
     store: DeepPartial<StateSchema>,

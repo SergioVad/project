@@ -1,14 +1,14 @@
 import { ToolkitStore } from '@reduxjs/toolkit/dist/configureStore';
-import { UserSchema } from 'entities/User';
-import { LoginSchema } from 'features/AuthByUsername';
 import { AxiosInstance } from 'axios';
-import { ArticleDetailsSchema } from 'entities/Article';
-import { ArticlesPageSchema } from 'pages/ArticlesPage/model/types/ArticlesPageSchema';
-import { IScrollSaveSchema } from 'features/scrollSave';
-import { ArticleDetailsRecommendationsSchema } from 'pages/ArticleDetailsPage';
-import { rtkApi } from 'shared/api/rtkApi';
-import { ArticleCommentsSchema } from 'features/ArticleComments';
-import { ProfileSchema } from 'features/EditableProfileCard';
+import { UserSchema } from '@/entities/User';
+import { LoginSchema } from '@/features/AuthByUsername';
+import { ArticleDetailsSchema } from '@/entities/Article';
+import { ArticlesPageSchema } from '@/pages/ArticlesPage/model/types/ArticlesPageSchema';
+import { IScrollSaveSchema } from '@/features/scrollSave';
+import { ArticleDetailsRecommendationsSchema } from '@/pages/ArticleDetailsPage';
+import { rtkApi } from '@/shared/api/rtkApi';
+import { ArticleCommentsSchema } from '@/features/ArticleComments';
+import { ProfileSchema } from '@/features/EditableProfileCard';
 import { ReducerManagerProps } from './reducerManager';
 
 export interface StateSchema {

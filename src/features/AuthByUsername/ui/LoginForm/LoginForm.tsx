@@ -1,12 +1,12 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { Input } from 'shared/ui/Input/Input';
 import { memo, useCallback } from 'react';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Text, TextTheme } from 'shared/ui/Text/Text';
-import { DynamicReducerLoader, ReducersList } from 'shared/lib/dynamicReducerLoader/dynamicReducerLoader';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Input } from '@/shared/ui/Input/Input';
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Text, TextTheme } from '@/shared/ui/Text/Text';
+import { DynamicReducerLoader, ReducersList } from '@/shared/lib/dynamicReducerLoader/dynamicReducerLoader';
 import { getStateIsLoading } from '../../model/selectors/getStateIsLoading/getStateIsLoading';
 import { getStatePassword } from '../../model/selectors/getStatePassword/getStatePassword';
 import { getStateUsername } from '../../model/selectors/getStateUsername/getStateUsername';

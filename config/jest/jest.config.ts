@@ -19,6 +19,7 @@ const config: Config = {
     moduleNameMapper: {
         '\\.s?css$': 'identity-obj-proxy',
         '\\.svg': path.resolve(__dirname, 'ComponentSVG.tsx'),
+        '^@/(.*)$': '<rootDir>src/$1',
     },
 
     // Automatically clear mock calls, instances, contexts and results before every test
@@ -144,14 +145,14 @@ const config: Config = {
     // projects: undefined,
 
     // Use this configuration option to add custom reporters to Jest
-    reporters: [
-        'default',
-        ['jest-html-reporters', {
-            publicPath: '<rootDir>/reports/unit',
-            filename: 'report.html',
-            openReport: true,
-        }],
-    ],
+    // reporters: [
+    //     'default',
+    //     ['jest-html-reporters', {
+    //         publicPath: '<rootDir>/reports/unit',
+    //         filename: 'report.html',
+    //         openReport: true,
+    //     }],
+    // ],
 
     // Automatically reset mock state before every test
     // resetMocks: false,

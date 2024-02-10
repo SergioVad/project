@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Theme } from 'shared/contexts/theme/ThemeContext';
-import { ThemeDecorator } from 'shared/config/decorators/ThemeDecorator';
+import { Theme } from '@/shared/contexts/theme/ThemeContext';
+import { ThemeDecorator } from '@/shared/config/decorators/ThemeDecorator';
 import { Modal } from './Modal';
 
 const meta = {
@@ -9,7 +9,7 @@ const meta = {
     component: Modal,
     parameters: {
     },
-    // tags: ['autodocs'],
+    tags: ['autodocs'],
     argTypes: {
     },
 } satisfies Meta<typeof Modal>;
@@ -17,14 +17,14 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
+export const ModalPrimary: Story = {
     args: {
         isOpen: true,
         children: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.Id amet facilis quia aliquid, delectusmagnam quibusdam obcaecati officiisx provident dolor ut doloresipsam rerum sapiente quaerat non unde illum tempora.',
     },
 };
 
-export const DarkPage: Story = {
+export const ModalDark: Story = {
     args: {
         isOpen: true,
         children: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.Id amet facilis quia aliquid, delectusmagnam quibusdam obcaecati officiisx provident dolor ut doloresipsam rerum sapiente quaerat non unde illum tempora.',

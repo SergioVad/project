@@ -18,14 +18,6 @@ export function buildBabelLoader(options : buildBabelLoaderProps) {
                     plugins:
                     [
                         [
-                            'i18next-extract',
-                            {
-                                locales: ['ru', 'en'],
-                                keyAsDefaultValue: false,
-                                saveMissing: true,
-                            },
-                        ],
-                        [
                             '@babel/plugin-transform-typescript',
                             {
                                 isTsx,

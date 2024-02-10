@@ -1,7 +1,7 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-
 import { HTMLAttributeAnchorTarget, memo } from 'react';
-import { Text, TextSize } from 'shared/ui/Text/Text';
+import { classNames } from '@/shared/lib/classNames/classNames';
+
+import { Text, TextSize } from '@/shared/ui/Text/Text';
 import cls from './ArticleList.module.scss';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';

@@ -1,4 +1,4 @@
-import { IProfile } from 'entities/Profile';
+import { IProfile } from '@/entities/Profile';
 import { validateProfileData } from './validateProfileData';
 import { ValidateErrors } from '../../const/const';
 

@@ -1,4 +1,4 @@
-import { IProfile } from 'entities/Profile';
+import { IProfile } from '@/entities/Profile';
 import { profileActions, profileReducer } from './Profile.slice';
 import { fetchProfileData } from '../services/fetchProfileData/fetchProfileData';
 import { ProfileSchema } from '../types/EditableProfileCard';

@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Button, ButtonSize, ButtonTheme } from './Button';
+import { ThemeDecorator } from '@/shared/config/decorators/ThemeDecorator';
+import { Theme } from '@/shared/contexts/theme/ThemeContext';
 
 const meta = {
     title: 'Shared/Button',
@@ -15,65 +17,49 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
+export const ButtonPrimary: Story = {
     args: {
-        children: 'CHECK',
+        children: 'CLICK',
     },
 };
 
-export const Clear: Story = {
+export const ButtonPrimaryDark: Story = {
     args: {
-        children: 'CHECK',
+        children: 'CLICK',
+    },
+    decorators: [ThemeDecorator(Theme.DARK)],
+};
+
+export const ButtonClear: Story = {
+    args: {
+        children: 'CLICK',
         theme: ButtonTheme.CLEAR,
     },
 };
 
-export const ClearInverted: Story = {
+export const ButtonOutlineRed: Story = {
     args: {
-        children: 'CHECK',
-        theme: ButtonTheme.CLEAR_INVERTED,
+        children: 'CLICK',
+        theme: ButtonTheme.OUTLINE_RED,
     },
 };
 
-export const OutlineM: Story = {
+export const ButtonOutlineRedDark: Story = {
     args: {
-        children: 'CHECK',
-        theme: ButtonTheme.OUTLINE,
-        size: ButtonSize.M,
+        children: 'CLICK',
+        theme: ButtonTheme.OUTLINE_RED,
     },
+    decorators: [ThemeDecorator(Theme.DARK)],
 };
 
-export const OutlineL: Story = {
+export const ButtonBackgroundInverted: Story = {
     args: {
-        children: 'CHECK',
-        theme: ButtonTheme.OUTLINE,
-        size: ButtonSize.L,
-    },
-};
-
-export const OutlineXL: Story = {
-    args: {
-        children: 'CHECK',
-        theme: ButtonTheme.OUTLINE,
-        size: ButtonSize.XL,
-    },
-};
-
-export const Background: Story = {
-    args: {
-        children: 'CHECK',
-        theme: ButtonTheme.BACKGROUND,
-    },
-};
-
-export const BackgroundInventory: Story = {
-    args: {
-        children: 'CHECK',
+        children: 'CLICK',
         theme: ButtonTheme.BACKGROUND_INVERTED,
     },
 };
 
-export const SquareSizeM: Story = {
+export const ButtonSquareSizeM: Story = {
     args: {
         children: '>',
         square: true,
@@ -82,7 +68,7 @@ export const SquareSizeM: Story = {
     },
 };
 
-export const SquareSizeL: Story = {
+export const ButtonSquareSizeL: Story = {
     args: {
         children: '>',
         square: true,
@@ -91,7 +77,7 @@ export const SquareSizeL: Story = {
     },
 };
 
-export const SquareSizeXL: Story = {
+export const ButtonSquareSizeXL: Story = {
     args: {
         children: '>',
         square: true,
@@ -100,9 +86,33 @@ export const SquareSizeXL: Story = {
     },
 };
 
-export const Disabled: Story = {
+export const ButtonDisabled: Story = {
     args: {
         children: 'Login',
         disabled: true,
+    },
+};
+
+export const ButtonOutlineM: Story = {
+    args: {
+        children: 'CLICK',
+        theme: ButtonTheme.OUTLINE,
+        size: ButtonSize.M,
+    },
+};
+
+export const ButtonOutlineL: Story = {
+    args: {
+        children: 'CLICK',
+        theme: ButtonTheme.OUTLINE,
+        size: ButtonSize.L,
+    },
+};
+
+export const ButtonOutlineXL: Story = {
+    args: {
+        children: 'CLICK',
+        theme: ButtonTheme.OUTLINE,
+        size: ButtonSize.XL,
     },
 };

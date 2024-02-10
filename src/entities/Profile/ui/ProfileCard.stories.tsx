@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ECurrency } from 'entities/Currency';
-import { ECountry } from 'entities/Country';
+import { ECurrency } from '@/entities/Currency';
+import { ECountry } from '@/entities/Country';
 import { ProfileCard } from './ProfileCard';
 
 const meta = {

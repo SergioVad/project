@@ -1,8 +1,9 @@
-import { Mods, classNames } from 'shared/lib/classNames/classNames';
 import {
     MouseEvent, ReactNode, useCallback, useEffect,
 } from 'react';
+import { Mods, classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Modal.module.scss';
+import { Overlay } from '../Overlay/Overlay';
 
 interface ModalProps {
     className?: string;
@@ -43,6 +44,7 @@ export const Modal = (props: ModalProps) => {
     }
     return (
         <div className={classNames(cls.Modal, mods, [className])}>
+            <Overlay onClick={handleClose} />
             <div onClick={handleClose} className={cls.overlay}>
                 <div onClick={handleContentClick} className={cls.content}>
                     {children}

@@ -1,12 +1,12 @@
 /*eslint-disable*/
 import { Link, LinkProps } from 'react-router-dom';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { Additional, classNames } from '@/shared/lib/classNames/classNames';
 import { ReactNode, memo } from 'react';
 import cls from './AppLink.module.scss';
 
 export enum AppLinkTheme {
-    PRIMARY = 'primary',
-    SECONDARY = 'secondary',
+    PRIMARY_INVERTED = 'primaryInverted',
+    SECONDARY_INVERTED = 'secondaryInverted',
 }
 
 interface AppLinkProps extends LinkProps {
@@ -20,13 +20,16 @@ export const AppLink = memo((props: AppLinkProps) => {
         className,
         to,
         children,
-        theme = AppLinkTheme.PRIMARY,
+        theme,
         ...otherProps
     } = props;
+    const additionalClasses: Additional = theme 
+        ? [className, cls[theme]] 
+        : [className] 
     return (
         <Link
             to={to}
-            className={classNames(cls.AppLink, {}, [className, cls[theme]])}
+            className={classNames(cls.AppLink, {}, additionalClasses)}
             {...otherProps}
         >
             {children}

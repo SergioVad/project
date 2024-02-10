@@ -1,12 +1,12 @@
 import { memo, useCallback } from 'react';
-import { CommentsList, CommentsForm } from 'entities/Comment';
-import { DynamicReducerLoader, ReducersList } from 'shared/lib/dynamicReducerLoader/dynamicReducerLoader';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { CommentsList, CommentsForm } from '@/entities/Comment';
+import { DynamicReducerLoader, ReducersList } from '@/shared/lib/dynamicReducerLoader/dynamicReducerLoader';
 
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Text, TextSize } from 'shared/ui/Text/Text';
-import { VStack } from 'shared/ui/Stack/VStack/VStack';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Text, TextSize } from '@/shared/ui/Text/Text';
+import { VStack } from '@/shared/ui/Stack/VStack/VStack';
 import { useGetArticleCommentsQuery } from '../api/ArticleCommentsApi';
 import { getArticleCommentsText } from '../model/selectors/getArticleCommentsText';
 import { ArticleCommentsActions, ArticleCommentsReducer } from '../model/slices/ArticleComments.slice';

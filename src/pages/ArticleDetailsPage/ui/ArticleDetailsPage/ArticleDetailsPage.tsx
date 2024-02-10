@@ -1,14 +1,13 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
-import { ArticleDetails } from 'entities/Article';
 import { useParams } from 'react-router-dom';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Page } from 'widgets/Page/Page';
-import { DynamicReducerLoader, ReducersList } from 'shared/lib/dynamicReducerLoader/dynamicReducerLoader';
-import { ArticleRecommendationList } from 'features/ArticleRecommendationList';
-import { ArticleComment } from 'features/ArticleComments';
+import { ArticleDetails } from '@/entities/Article';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Page } from '@/widgets/Page/Page';
+import { DynamicReducerLoader, ReducersList } from '@/shared/lib/dynamicReducerLoader/dynamicReducerLoader';
+import { ArticleRecommendationList } from '@/features/ArticleRecommendationList';
+import { ArticleComment } from '@/features/ArticleComments';
 import cls from './ArticleDetailsPage.module.scss';
 import { AddCommentForArticle } from '../../model/services/AddCommentForArticle';
 import {

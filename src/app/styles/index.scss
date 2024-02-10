@@ -8,9 +8,9 @@ body {
     font: var(--font-m);
 }
 
-.app {
+.app,
+.app_drawer {
     color: var(--primary-color);
-    min-height: 100vh;
     background: var(--bg-color);
 }
 

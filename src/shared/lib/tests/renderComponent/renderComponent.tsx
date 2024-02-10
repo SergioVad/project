@@ -2,8 +2,8 @@ import { ReactNode, Suspense } from 'react';
 import { I18nextProvider } from 'react-i18next';
 import { MemoryRouter } from 'react-router-dom';
 import { render } from '@testing-library/react';
-import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
 import { DeepPartial } from '@reduxjs/toolkit';
+import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
 import i18nForTests from '../../../config/i18next/i18nextForTests';
 
 interface RenderComponentProps {

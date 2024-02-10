@@ -1,11 +1,12 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Navbar } from 'widgets/Navbar';
-import { Sidebar } from 'widgets/Sidebar';
 import { useEffect, useRef, useState } from 'react';
-import { getStateInited, userActions } from 'entities/User';
-import { USER_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Navbar } from '@/widgets/Navbar';
+import { Sidebar } from '@/widgets/Sidebar';
+import { getStateInited, userActions } from '@/entities/User';
+import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice';
 import { useTheme } from '../shared/contexts/theme/useTheme';
 import { AppRoute } from './providers/router';
 

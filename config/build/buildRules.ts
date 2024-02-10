@@ -4,7 +4,7 @@ import { cssLoader } from './loaders/cssLoader';
 import { buildBabelLoader } from './loaders/babelLoader';
 
 export const buildLoaders = (options: buildOptions): webpack.RuleSetRule[] => {
-    const scssLoader = cssLoader(options);
+    const scssLoader = cssLoader(options.isDev);
     const codeBabelLoader = buildBabelLoader({ ...options, isTsx: false });
     const tsxCodebabelLoader = buildBabelLoader({ ...options, isTsx: true });
 

@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
-import { Mods, classNames } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
 import { useSelector } from 'react-redux';
-import { getStateAuthData } from 'entities/User';
+import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink/AppLink';
+import { Mods, classNames } from '@/shared/lib/classNames/classNames';
+import { getStateAuthData } from '@/entities/User';
 import cls from './SidebarItem.module.scss';
 import { SidebarItemInterface } from '../../model/types/sidebarItems';
 
@@ -24,7 +24,7 @@ export const SidebarItem = memo((props: SidebarItemProps) => {
     if (item.authOnly && !isAuth) return false;
     return (
         <AppLink
-            theme={AppLinkTheme.PRIMARY}
+            theme={AppLinkTheme.PRIMARY_INVERTED}
             to={item.path}
             className={classNames(cls.item, mods, [])}
         >

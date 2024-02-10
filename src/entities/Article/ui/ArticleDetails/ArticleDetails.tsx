@@ -1,15 +1,15 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { DynamicReducerLoader, ReducersList } from 'shared/lib/dynamicReducerLoader/dynamicReducerLoader';
 import { memo, useCallback, useEffect } from 'react';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-import { Text, TextAlign, TextSize } from 'shared/ui/Text/Text';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import EyeIcon from 'shared/assets/icons/eye.svg';
-import CalendarIcon from 'shared/assets/icons/date.svg';
-import { Icon } from 'shared/ui/Icon/Icon';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { DynamicReducerLoader, ReducersList } from '@/shared/lib/dynamicReducerLoader/dynamicReducerLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import { Text, TextAlign, TextSize } from '@/shared/ui/Text/Text';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import EyeIcon from '@/shared/assets/icons/eye.svg';
+import CalendarIcon from '@/shared/assets/icons/date.svg';
+import { Icon } from '@/shared/ui/Icon/Icon';
 import { fetchArticleById } from '../../model/services/fetchArticleById';
 import {
     getArticleData,

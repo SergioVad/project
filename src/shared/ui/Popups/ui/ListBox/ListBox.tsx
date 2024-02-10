@@ -1,10 +1,12 @@
 import { Fragment, ReactNode } from 'react';
 import { Listbox as HListBox } from '@headlessui/react';
-import { Additional, classNames } from 'shared/lib/classNames/classNames';
-import { TDirection } from 'shared/types/ui';
+import { Additional, classNames } from '@/shared/lib/classNames/classNames';
+import { TDirection } from '@/shared/types/ui';
 import cls from './ListBox.module.scss';
-import { Button } from '../Button/Button';
-import { HStack } from '../Stack/HStack/HStack';
+import { Button } from '../../../Button/Button';
+import { HStack } from '../../../Stack/HStack/HStack';
+import { mapDirectionClass } from '../../const/mapToClasses';
+import clsPopup from '../../styles/popups.module.scss';
 
 interface ListBoxItem {
     value: string;
@@ -23,13 +25,6 @@ interface ListBoxInterface {
     direction?: TDirection;
 }
 
-const mapDirectionClass: Record<TDirection, string> = {
-    'bottom left': cls.optionsBottomLeft,
-    'bottom right': cls.optionsBottomRight,
-    'top right': cls.optionsTopRight,
-    'top left': cls.optionsTopLeft,
-};
-
 export function ListBox(props: ListBoxInterface) {
     const {
         defaultValue,
@@ -45,10 +40,10 @@ export function ListBox(props: ListBoxInterface) {
                 as="div"
                 value={value}
                 onChange={onChange}
-                className={classNames(cls.listBox, {}, [className])}
+                className={classNames(clsPopup.popup, {}, [className])}
             >
                 <HListBox.Button
-                    className={cls.button}
+                    className={clsPopup.button}
                 >
                     <Button
                         disabled={disabled}
@@ -69,7 +64,7 @@ export function ListBox(props: ListBoxInterface) {
                                     className={classNames(
                                         cls.item,
                                         {
-                                            [cls.active]: active,
+                                            [clsPopup.active]: active,
                                             [cls.disabled]: item.disabled,
                                         },
                                     )}

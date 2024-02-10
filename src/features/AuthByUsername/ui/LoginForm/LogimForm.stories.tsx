@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { StoreDecorator } from 'shared/config/decorators/StoreDecorator';
-import { ThemeDecorator } from 'shared/config/decorators/ThemeDecorator';
-import { Theme } from 'shared/contexts/theme/ThemeContext';
+import { StoreDecorator } from '@/shared/config/decorators/StoreDecorator';
+import { ThemeDecorator } from '@/shared/config/decorators/ThemeDecorator';
+import { Theme } from '@/shared/contexts/theme/ThemeContext';
 import LoginForm, { reducersLoginForm } from './LoginForm';
 
 const meta = {
