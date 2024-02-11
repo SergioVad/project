@@ -20,9 +20,17 @@ const options: SelectOption<string>[] = [
     { content: 'Value №3', value: 'Value №3' },
 ];
 
-export const TestComponent: Story = {
+export const SelectPrimary: Story = {
     args: {
         label: 'Test',
         options,
+    },
+};
+
+export const SelectDisabled: Story = {
+    args: {
+        label: 'Test',
+        options,
+        readOnly: true,
     },
 };

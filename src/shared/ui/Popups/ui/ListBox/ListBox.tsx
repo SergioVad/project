@@ -44,6 +44,7 @@ export function ListBox(props: ListBoxInterface) {
             >
                 <HListBox.Button
                     className={clsPopup.button}
+                    as="div"
                 >
                     <Button
                         disabled={disabled}

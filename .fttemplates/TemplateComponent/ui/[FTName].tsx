@@ -1,5 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './[FTName].module.scss'
+import {memo} from 'react
 
 import { useTranslation } from 'react-i18next';
 interface [FTName]Props {
