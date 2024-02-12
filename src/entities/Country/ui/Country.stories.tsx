@@ -4,16 +4,15 @@ import { CountrySelect } from './CountrySelect';
 const meta = {
     title: 'entities/CountrySelect',
     component: CountrySelect,
-    parameters: {
-    },
+    parameters: {},
     tags: ['autodocs'],
-    argTypes: {
-    },
+    argTypes: {},
+    decorators: [
+        (Story) => <div style={{ padding: 200 }}><Story /></div>,
+    ],
 } satisfies Meta<typeof CountrySelect>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const TestComponent: Story = {
-    args: {},
-};
+export const Primary: Story = {};

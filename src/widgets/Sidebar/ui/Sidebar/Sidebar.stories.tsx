@@ -6,7 +6,7 @@ import { StoreDecorator } from '@/shared/config/decorators/StoreDecorator';
 import { Sidebar } from './Sidebar';
 
 const meta = {
-    title: 'Widget/Sidebar',
+    title: 'Widgets/Sidebar',
     component: Sidebar,
     parameters: {
     },
@@ -41,7 +41,9 @@ export const DarkSidebarWithAuthData: Story = {
     decorators: [
         StoreDecorator({
             user: {
-                authData: {},
+                authData: {
+                    id: '1',
+                },
             },
         }),
     ],
@@ -52,7 +54,9 @@ export const LightSidebarWithAuthData: Story = {
         ThemeDecorator(Theme.DARK),
         StoreDecorator({
             user: {
-                authData: {},
+                authData: {
+                    id: '1',
+                },
             },
         }),
     ],

@@ -5,7 +5,7 @@ import { Theme } from '@/shared/contexts/theme/ThemeContext';
 import { PageLoader } from './PageLoader';
 
 const meta = {
-    title: 'Widget/PageLoader',
+    title: 'Widgets/PageLoader',
     component: PageLoader,
     parameters: {
     },

@@ -1,5 +1,3 @@
-Сделать норм сниппеты и folders template
-
 Разобраться с LF, CRLF
 
 Настроить i18n для сторибука
@@ -22,7 +20,7 @@
 
 Пройти 72 урок по тестированию
 
-Отрефакторить страницы и добаваить на все тесты
+Отрефакторить страницы
 
 Пройти 74 урок
 
@@ -40,30 +38,23 @@
 
 Для чего alias нужны
 
-webpack сторибука 15 строка решить проблему с функцией cssLoader(Передается options полностью а не отдельно boolean)
+пройти 84 урок
 
-Выучить регулярные выражения пример(jest.config.ts 22 строка)
-
-пройти 84 урок до 2:00 минут
-
-пройти 85 урок
-
-Пройти 97 урок по Документации проекта
-
-Пройти 98 Алиасы в jest. Fullscreen mode storybook
-
-99 Storybook addon theme 03:50
-
-107 Тесты на роутер. Обновляем RTL 09:10
-
-108 Lint staged и pre commit хуки 03:07
-
-109 Генерация отчета для скриншотных тестов в CI. Github pages and jobs 07:56
-
-110 Отчет для юнит тестов в CI 05:00
-
-112 Исправляем проблемы с зависимостями. Обновляем сторибук 10:37
+ПОСМОТРЕТЬ НИЖЕ 12 МОДУЛЯ, ВОЗМОЖНО ЧТО ТО ЗАБЫЛ ВПИСАТЬ!!!
 
 Возможно написать скриншотные тесты на Drawer
 
-Написать скриншотные тесты на Dropdown после изучения mock action storybook
+Написать скриншотные тесты на Dropdown и DropdownAvatar после изучения mock action storybook
+
+Написать скриншотные тесты на ArticleTypeTabs.stories(onClick) после изучения mock action storybook
+
+Компоненты Country Currency перекинуть из entities возможно
+
+storybook - NotificationList,
+ArticleRecommendationList,
+ArticleComment,
+PopoverNotifications по RTKQUery
+
+Скриншотные тесты на ProfilePage и ArticlesPage
+
+Сделать unit тесты на все оставшиеся компоненты

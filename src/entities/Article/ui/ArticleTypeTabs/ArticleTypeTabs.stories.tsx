@@ -1,21 +1,22 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import {ArticleTypeTabs.stories} from './ArticleTypeTabs.stories';
+import { ArticleTypeTabs } from './ArticleTypeTabs';
+import { ArticleType } from '../../model/const/const';
 
 const meta = {
-title: 'layers/ArticleTypeTabs.stories',
-component: ArticleTypeTabs.stories,
-parameters: {
-},
-tags: ['autodocs'],Ц
-argTypes: {
-},
-} satisfies Meta<typeof ArticleTypeTabs.stories>;
+    title: 'entities/Article/ArticleTypeTabs',
+    component: ArticleTypeTabs,
+    parameters: {
+    },
+    tags: ['autodocs'],
+    argTypes: {
+    },
+} satisfies Meta<typeof ArticleTypeTabs>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-args: {
-
-}
+    args: {
+        value: ArticleType.IT,
+    },
 };

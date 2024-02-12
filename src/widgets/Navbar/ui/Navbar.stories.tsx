@@ -4,7 +4,7 @@ import { StoreDecorator } from '@/shared/config/decorators/StoreDecorator';
 import { Navbar } from './Navbar';
 
 const meta = {
-    title: 'Widget/Navbar',
+    title: 'Widgets/Navbar',
     component: Navbar,
     parameters: {
     },

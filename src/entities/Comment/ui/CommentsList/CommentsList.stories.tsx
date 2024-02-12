@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { CommentsList } from './CommentsList';
 
 const meta = {
-    title: 'Entities/CommentsList',
+    title: 'Entities/Comment/CommentsList',
     component: CommentsList,
     parameters: {
     },
@@ -28,5 +28,11 @@ export const Primary: Story = {
                 user: { id: '1', username: 'Petya', role: ['USER'] },
             },
         ],
+    },
+};
+
+export const IsLoading: Story = {
+    args: {
+        isLoading: true,
     },
 };

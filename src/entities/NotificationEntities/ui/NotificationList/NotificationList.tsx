@@ -4,7 +4,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 
 import { VStack } from '@/shared/ui/Stack/VStack/VStack';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
-import { NotificationItem } from '../NotificationsItem/NotificationItem';
+import { NotificationItem } from '../NotificationItem/NotificationItem';
 import { useNotifications } from '../../api/notificationApi';
 
 interface NotificationListProps {

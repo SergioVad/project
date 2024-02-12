@@ -2,7 +2,6 @@
 import {
     AnyAction, Reducer, ReducersMapObject, combineReducers,
 } from '@reduxjs/toolkit';
-import { useDispatch } from 'react-redux';
 import { StateSchema, StateSchemaKey } from './stateSchema';
 
 export interface ReducerManagerProps {

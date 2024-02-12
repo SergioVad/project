@@ -5,11 +5,11 @@ import { ThemeDecorator } from '@/shared/config/decorators/ThemeDecorator';
 import { PageError } from './PageError';
 
 const meta = {
-    title: 'Widget/PageError',
+    title: 'Widgets/PageError',
     component: PageError,
     parameters: {
     },
-    // tags: ['autodocs'],
+    tags: ['autodocs'],
     argTypes: {
     },
 } satisfies Meta<typeof PageError>;

@@ -4,14 +4,15 @@ import { CurrencySelect } from './CurrencySelect';
 const meta = {
     title: 'entities/CurrencySelect',
     component: CurrencySelect,
-    parameters: {
-    },
+    parameters: {},
     tags: ['autodocs'],
-    argTypes: {
-    },
+    argTypes: {},
+    decorators: [
+        (Story) => <div style={{ padding: 200 }}><Story /></div>,
+    ],
 } satisfies Meta<typeof CurrencySelect>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const TestComponent: Story = {};
+export const Primary: Story = {};
