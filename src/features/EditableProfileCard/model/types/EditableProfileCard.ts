@@ -5,7 +5,7 @@ export interface ProfileSchema {
     profile?: IProfile;
     form?: IProfile;
     error?: string;
-    isLoading: boolean;
-    readonly: boolean;
+    isLoading?: boolean;
+    readonly?: boolean;
     validate?: ValidateErrors[];
 }
