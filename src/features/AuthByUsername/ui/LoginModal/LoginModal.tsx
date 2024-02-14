@@ -1,4 +1,4 @@
-import { Suspense, memo, useState } from 'react';
+import { Suspense, memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
 import { Modal } from '@/shared/ui/Modal/Modal';

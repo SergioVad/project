@@ -16,12 +16,11 @@ import cls from './Navbar.module.scss';
 
 interface NavbarProps {
     className?: string;
-    modal?: HTMLDivElement | null;
 }
 
 export const Navbar = memo((options: NavbarProps) => {
     const userAuthData = useSelector(getStateAuthData);
-    const { className, modal } = options;
+    const { className } = options;
     const { t } = useTranslation();
     const [login, setLogin] = useState<boolean>(false);
     const openModal = useCallback(() => {
@@ -56,9 +55,8 @@ export const Navbar = memo((options: NavbarProps) => {
     }
     return (
         <header className={classNames(cls.Navbar, {}, [className])}>
-            {modal
-            && (
-                <Portal element={modal}>
+            {login && (
+                <Portal>
                     <LoginModal
                         isOpen={login}
                         onClose={closeModal}

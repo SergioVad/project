@@ -3,9 +3,9 @@ import {
 } from 'react';
 
 export enum Theme {
-    LIGHT = 'light',
-    DARK = 'dark',
-    ORANGE = 'orange',
+    LIGHT = 'app_light_theme',
+    DARK = 'app_dark_theme',
+    ORANGE = 'app_orange_theme',
 }
 
 const defaultTheme = localStorage.getItem('theme') as Theme || Theme.LIGHT;

@@ -13,6 +13,7 @@ export default ({ config }: {config: webpack.Configuration}) => {
     config.resolve!.modules!.push(paths.src);
     config.resolve!.extensions!.push('.ts', '.tsx');
     config.module!.rules!.push(cssLoader(true));
+    // eslint-disable-next-line no-param-reassign
     config.resolve!.alias = {
         ...config.resolve!.alias,
         '@': paths.src,
@@ -34,7 +35,7 @@ export default ({ config }: {config: webpack.Configuration}) => {
         });
         config.plugins!.push(new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(true),
-            __API__: JSON.stringify(true),
+            __API__: JSON.stringify('https://jso2nplaceholder.com'),
             __PROJECT__: JSON.stringify('storybook'),
         }));
         return config;
