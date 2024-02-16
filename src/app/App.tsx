@@ -13,7 +13,6 @@ export function App() {
     const dispatch = useAppDispatch();
     const inited = useSelector(getStateInited);
     const { theme } = useTheme();
-    const app = useRef(null);
     useEffect(() => {
         const userData = localStorage.getItem(USER_LOCALSTORAGE_KEY);
         if (userData) {
@@ -23,7 +22,7 @@ export function App() {
         }
     }, [dispatch]);
     return (
-        <div ref={app} className={classNames('app', {}, [theme])}>
+        <div className={classNames('app', {}, [theme])}>
             <Navbar />
             <div className="content-page">
                 <Sidebar />

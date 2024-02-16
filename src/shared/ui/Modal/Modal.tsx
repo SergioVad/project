@@ -5,6 +5,7 @@ import { Additional, Mods, classNames } from '@/shared/lib/classNames/classNames
 import cls from './Modal.module.scss';
 import { Overlay } from '../Overlay/Overlay';
 import { useTheme } from '@/shared/contexts/theme/useTheme';
+import { useModal } from '@/shared/lib/hooks/useModal/useModal';
 
 interface ModalProps {
     className?: string;
@@ -18,35 +19,14 @@ export const Modal = (props: ModalProps) => {
     const {
         className, children, isOpen, onClose, lazy,
     } = props;
-    const timerOnOpen = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
-    const [isClosing, setIsClosing] = useState(false);
-    const [isOpening, setIsOpening] = useState(false);
-    useEffect(() => {
-        setIsOpening(true);
-    }, []);
 
     const { theme } = useTheme();
 
-    const onKeyDown = useCallback((e: KeyboardEvent) => {
-        if (e.key === 'Escape') {
-            onClose?.();
-        }
-    }, [onClose]);
-    useEffect(() => {
-        window.addEventListener('keydown', onKeyDown);
-        return () => {
-            window.removeEventListener('keydown', onKeyDown);
-            clearTimeout(timerOnOpen.current);
-        };
-    }, [onKeyDown]);
-    const handleClose = () => {
-        if (onClose) {
-            setIsClosing(true);
-            timerOnOpen.current = setTimeout(() => {
-                onClose();
-            }, 300);
-        }
-    };
+    const {
+        handleClose,
+        isClosing,
+        isOpening,
+    } = useModal({ onClose });
     if (lazy && !isOpen) {
         return null;
     }
