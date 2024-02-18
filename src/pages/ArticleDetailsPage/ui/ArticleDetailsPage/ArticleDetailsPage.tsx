@@ -1,4 +1,4 @@
-import { useTranslation } from 'react-i18next';
+// import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import { ArticleDetails } from '@/entities/Article';
@@ -15,6 +15,7 @@ import {
 }
     from '../../model/slices/articleDetailsPageRecommendations.slice';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import { ArticlesRating } from '@/features/ArticlesRating';
 
 export interface ArticleDetailsPageProps {
   className?: string;
@@ -25,7 +26,7 @@ export const reducerArticleDetailsPage: ReducersList = {
 };
 
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
-    const { t } = useTranslation('articles');
+    // const { t } = useTranslation('articles');
     const { id } = useParams<{id: string}>();
     const dispatch = useAppDispatch();
     const onSendComment = useCallback((text: string) => {
@@ -34,7 +35,8 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     if (!id) {
         return (
             <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-                {t('Статья не найдена')}
+                Статья не найдена
+                {/* {t('Статья не найдена')} */}
             </Page>
         );
     }
@@ -43,6 +45,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
             <DynamicReducerLoader reducers={reducerArticleDetailsPage}>
                 <ArticleDetailsPageHeader />
                 <ArticleDetails id={id} />
+                <ArticlesRating articleId={id} />
                 <ArticleRecommendationList />
                 <ArticleComment id={id} onSendComment={onSendComment} />
             </DynamicReducerLoader>

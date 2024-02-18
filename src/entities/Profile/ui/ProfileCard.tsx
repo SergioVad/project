@@ -85,7 +85,7 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
                 className={cls.input}
                 readOnly={readonly}
                 onChange={setFirstName}
-                data-testId="ProfileCard.Input.firstname"
+                data-testid="ProfileCard.Input.firstname"
             />
             <Input
                 value={dataProfile?.lastname}

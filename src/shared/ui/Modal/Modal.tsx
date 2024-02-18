@@ -1,6 +1,4 @@
-import {
-    MutableRefObject, ReactNode, useCallback, useEffect, useRef, useState,
-} from 'react';
+import { ReactNode } from 'react';
 import { Additional, Mods, classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Modal.module.scss';
 import { Overlay } from '../Overlay/Overlay';
@@ -26,7 +24,7 @@ export const Modal = (props: ModalProps) => {
         handleClose,
         isClosing,
         isOpening,
-    } = useModal({ onClose });
+    } = useModal({ onClose, isOpen });
     if (lazy && !isOpen) {
         return null;
     }
@@ -35,7 +33,7 @@ export const Modal = (props: ModalProps) => {
         [cls.closing]: isClosing,
     };
     const additionalClasses: Additional = [className, theme, 'app_modal'];
-    const content = (
+    return (
         <div className={classNames(cls.Modal, mods, additionalClasses)}>
             <Overlay onClick={handleClose} />
             <div className={cls.content}>
@@ -43,5 +41,4 @@ export const Modal = (props: ModalProps) => {
             </div>
         </div>
     );
-    return content;
 };

@@ -19,7 +19,7 @@ interface PopoverNotificationsProps {
 export const PopoverNotifications = memo((props: PopoverNotificationsProps) => {
     const { className } = props;
     const userAuthData = useSelector(getStateAuthData);
-    const device = useDevice();
+    const mobileDevice = useDevice();
     const [isOpen, setIsOpen] = useState(false);
 
     const onOpenDrawer = useCallback(() => {
@@ -29,13 +29,13 @@ export const PopoverNotifications = memo((props: PopoverNotificationsProps) => {
     const onCloseDrawer = useCallback(() => {
         setIsOpen(false);
     }, []);
-    if (device) {
+    if (mobileDevice) {
         return (
             <>
                 <Button onClick={onOpenDrawer} theme={ButtonTheme.CLEAR}>
                     <Icon Img={IconNotification} inverted />
                 </Button>
-                <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
+                <Drawer lazy isOpen={isOpen} onClose={onCloseDrawer}>
                     <NotificationList />
                 </Drawer>
             </>

@@ -78,6 +78,7 @@ module.exports = {
         'react/no-array-index-key': 'off',
         'arrow-body-style': 'off',
         'sergio-plugin/path-checker': 'error',
+        'jsx-a11y/control-has-associated-label': 'off',
     },
     globals: {
         __IS_DEV__: true,

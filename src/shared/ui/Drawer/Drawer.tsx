@@ -17,6 +17,7 @@ interface DrawerProps {
     children: ReactNode;
     onClose?: () => void;
     isOpen?: boolean;
+    lazy?: boolean;
 }
 
 const height = window.innerHeight - 100;
@@ -29,6 +30,7 @@ export const DrawerContent = memo((props: DrawerProps) => {
         children,
         onClose,
         isOpen,
+        lazy,
     } = props;
 
     const { theme } = useTheme();
@@ -85,7 +87,7 @@ export const DrawerContent = memo((props: DrawerProps) => {
 
     const display = y.to((py) => (py < height ? 'block' : 'none'));
 
-    if (!isOpen) {
+    if (!isOpen && lazy) {
         return null;
     }
     const mods: Mods = {

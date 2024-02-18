@@ -40,7 +40,7 @@ export const ProfilePageHeader = memo(
                             className={cls.editBtn}
                             theme={ButtonTheme.OUTLINE}
                             onClick={onEdit}
-                            data-testId="ProfilePageHeader.editBtn"
+                            data-testid="ProfilePageHeader.editBtn"
                         >
                             {t('Редактировать')}
                         </Button>
@@ -50,7 +50,7 @@ export const ProfilePageHeader = memo(
                                 className={cls.editBtn}
                                 theme={ButtonTheme.OUTLINE_RED}
                                 onClick={onCancelEdit}
-                                data-testId="ProfilePageHeader.cancelBtn"
+                                data-testid="ProfilePageHeader.cancelBtn"
                             >
                                 {t('Отменить')}
                             </Button>
@@ -58,7 +58,7 @@ export const ProfilePageHeader = memo(
                                 className={cls.editBtn}
                                 theme={ButtonTheme.OUTLINE}
                                 onClick={onSavelEdit}
-                                data-testId="ProfilePageHeader.saveBtn"
+                                data-testid="ProfilePageHeader.saveBtn"
                             >
                                 {t('Сохранить')}
                             </Button>

@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import webpack, { RuleSetRule } from 'webpack';
 import path from 'path';
 import { BuildPaths } from '../build/types/config';
@@ -13,14 +14,12 @@ export default ({ config }: {config: webpack.Configuration}) => {
     config.resolve!.modules!.push(paths.src);
     config.resolve!.extensions!.push('.ts', '.tsx');
     config.module!.rules!.push(cssLoader(true));
-    // eslint-disable-next-line no-param-reassign
     config.resolve!.alias = {
         ...config.resolve!.alias,
         '@': paths.src,
     };
     type typeRuleSetRule = false | '' | 0 | RuleSetRule | '...' | null | undefined;
 
-        // eslint-disable-next-line no-param-reassign
         config.module!.rules = config.module!.rules!.map((rule: typeRuleSetRule) => {
             if (rule
                 && rule !== '...'
