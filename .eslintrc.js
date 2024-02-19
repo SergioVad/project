@@ -77,8 +77,13 @@ module.exports = {
         'i18n-ally-key-missing': 'off',
         'react/no-array-index-key': 'off',
         'arrow-body-style': 'off',
-        'sergio-plugin/path-checker': 'error',
         'jsx-a11y/control-has-associated-label': 'off',
+        'sergio-plugin/path-checker': ['error', {
+            alias: '@',
+        }],
+        'sergio-plugin/publick-api-imports': ['error', {
+            alias: '@',
+        }],
     },
     globals: {
         __IS_DEV__: true,

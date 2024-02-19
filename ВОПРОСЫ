@@ -60,3 +60,5 @@ console.js:213 Warning: Function components cannot be given refs. Attempts to ac
 Из за i18n компоненты рендерятся дважды, исправить и добавить интернационализацию на все необходимые компоненты
 
 скриншотные тесты на все rating компоненты
+
+Настроить для shared eslint правила
