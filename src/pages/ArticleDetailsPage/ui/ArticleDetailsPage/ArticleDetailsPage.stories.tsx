@@ -1,11 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { reactRouterParameters } from 'storybook-addon-react-router-v6';
-import {
-    Article, ArticleBlocksType, ArticleType,
-} from '@/entities/Article';
+import { Article, ArticleBlocksType, ArticleType } from '@/entities/Article';
+import ArticleDetailsPage, { reducerArticleDetailsPage } from './ArticleDetailsPage';
 import { StoreDecorator } from '@/shared/config/decorators/StoreDecorator';
-import { reducerArticleDetails } from '@/entities/Article/ui/ArticleDetails/ArticleDetails';
-import ArticleDetailsPage from './ArticleDetailsPage';
 
 const meta = {
     title: 'pages/ArticleDetailsPage',
@@ -101,7 +98,7 @@ export const Normal: Story = {
             ArticleDetails: {
                 data,
             },
-        }, reducerArticleDetails),
+        }, reducerArticleDetailsPage),
     ],
     parameters: {
         reactRouter: reactRouterParameters({

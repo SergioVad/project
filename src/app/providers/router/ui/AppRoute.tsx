@@ -1,10 +1,9 @@
-import {
-    Suspense, memo,
-} from 'react';
+import { Suspense, memo } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { routeConfig, AppRoutesProps } from '@/shared/config/routeConfig/routeConfig';
 import { PageLoader } from '@/widgets/PageLoader';
 import { RequireAuth } from './requireAuth';
+import { routeConfig } from '../config/routeConfig';
+import { AppRoutesProps } from '@/shared/types/route';
 
 const renderWithWrapper = (route: AppRoutesProps) => {
     const element = (

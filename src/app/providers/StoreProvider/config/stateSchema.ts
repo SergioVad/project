@@ -3,7 +3,7 @@ import { AxiosInstance } from 'axios';
 import { UserSchema } from '@/entities/User';
 import { LoginSchema } from '@/features/AuthByUsername';
 import { ArticleDetailsSchema } from '@/entities/Article';
-import { ArticlesPageSchema } from '@/pages/ArticlesPage/model/types/ArticlesPageSchema';
+import { ArticlesPageSchema } from '@/pages/ArticlesPage';
 import { IScrollSaveSchema } from '@/features/scrollSave';
 import { ArticleDetailsRecommendationsSchema } from '@/pages/ArticleDetailsPage';
 import { rtkApi } from '@/shared/api/rtkApi';

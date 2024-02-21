@@ -83,6 +83,7 @@ module.exports = {
         }],
         'sergio-plugin/publick-api-imports': ['error', {
             alias: '@',
+            testFilesPatterns: ['**/*.test.ts', '**/*.stories.ts'],
         }],
     },
     globals: {

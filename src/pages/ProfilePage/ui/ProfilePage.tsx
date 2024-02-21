@@ -1,9 +1,9 @@
 import { memo } from 'react';
 import { useParams } from 'react-router-dom';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Page } from '@/widgets/Page/Page';
 import { EditableProfileCard } from '@/features/EditableProfileCard';
 import { Text } from '@/shared/ui/Text/Text';
+import { Page } from '@/widgets/Page';
 
 export interface ProfilePageProps {
     className?: string;
