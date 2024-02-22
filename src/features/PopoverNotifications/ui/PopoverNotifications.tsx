@@ -10,7 +10,6 @@ import { Drawer } from '@/shared/ui/Drawer/Drawer';
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 import cls from './PopoverNotifications.module.scss';
 import IconNotification from '../assets/image/notification.svg';
-import { AnimationProvider } from '@/shared/lib/Components/AnimationProvider/AnimationProvider';
 
 interface PopoverNotificationsProps {
     className?: string;

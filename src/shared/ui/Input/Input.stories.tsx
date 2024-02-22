@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { Input } from './Input';
 import { ThemeDecorator } from '@/shared/config/decorators/ThemeDecorator';
-import { Theme } from '@/shared/contexts/theme/ThemeContext';
+import { Theme } from '@/app/providers/ThemeProvider/ThemeProvider';
 
 const meta = {
     title: 'Shared/Input',

@@ -3,7 +3,7 @@ import { ArticleTextBlock } from './ArticleTextBlock';
 import { IArticleTextBlock } from '../../model/types/Article';
 import { ArticleBlocksType } from '../../model/const/const';
 import { ThemeDecorator } from '@/shared/config/decorators/ThemeDecorator';
-import { Theme } from '@/shared/contexts/theme/ThemeContext';
+import { Theme } from '@/app/providers/ThemeProvider/ThemeProvider';
 
 const meta = {
     title: 'entities/Article/ArticleTextBlock',

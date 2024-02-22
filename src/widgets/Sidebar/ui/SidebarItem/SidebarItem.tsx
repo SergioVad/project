@@ -16,8 +16,7 @@ export const SidebarItem = memo((props: SidebarItemProps) => {
     const isAuth = useSelector(getStateAuthData);
     const { item, collapsed } = props;
 
-    // Ререндер из за интернационализцации
-    // const { t } = useTranslation();
+    const { t } = useTranslation();
     const mods: Mods = {
         [cls.collapsed]: collapsed,
     };
@@ -29,7 +28,7 @@ export const SidebarItem = memo((props: SidebarItemProps) => {
             className={classNames(cls.item, mods, [])}
         >
             <item.Icon className={cls.img} />
-            {/* <span className={cls.link}>{t(item.name)}</span> */}
+            <span className={cls.link}>{t(item.name)}</span>
             <span className={cls.link}>{item.name}</span>
         </AppLink>
     );

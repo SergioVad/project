@@ -4,7 +4,7 @@ import { ECountry } from '@/entities/Country';
 import { ECurrency } from '@/entities/Currency';
 import { IProfile } from '@/entities/Profile';
 import { RenderComponent } from '@/shared/lib/tests/renderComponent/renderComponent';
-import { EditableProfileCard, reducersProfilePage } from './EditableProfileCard';
+import { EditableProfileCard } from './EditableProfileCard';
 import { profileReducer } from '../../model/slices/Profile.slice';
 import { $api } from '@/shared/api/api';
 

@@ -47,6 +47,7 @@ module.exports = {
         'jest',
         'react-hooks',
         'sergio-plugin',
+        'unused-imports',
     ],
     rules: {
         'react/jsx-indent': [2, 4],
@@ -65,7 +66,6 @@ module.exports = {
         'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
         'react/jsx-no-comment-textnodes': 'off',
-        'i18next/no-literal-string': ['error'],
         'max-len': ['error', { ignoreComments: true, code: 110 }],
         'linebreak-style': 'off',
         'react/display-name': 'off',
@@ -78,6 +78,7 @@ module.exports = {
         'react/no-array-index-key': 'off',
         'arrow-body-style': 'off',
         'jsx-a11y/control-has-associated-label': 'off',
+        'unused-imports/no-unused-imports': 'error',
         'sergio-plugin/path-checker': ['error', {
             alias: '@',
         }],
@@ -85,6 +86,13 @@ module.exports = {
             alias: '@',
             testFilesPatterns: ['**/*.test.ts', '**/*.stories.ts'],
         }],
+        'sergio-plugin/available-layers': ['error', {
+            alias: '@',
+            ignoreImportPatterns: ['**/StoreProvider', '**/ThemeProvider'],
+        }],
+        // TODO
+        // Включить после настройки i18n
+        'i18next/no-literal-string': ['off'],
     },
     globals: {
         __IS_DEV__: true,

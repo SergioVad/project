@@ -53,12 +53,14 @@ gitignore изучить способы добавления файлов(вло
 Modal рендерится 2 раза из за изменения стейта, 
 необходимого для анимации открытия модалки(возможно поможет useRef)
 
-Перенести themeProvider на уровень app
-
 console.js:213 Warning: Function components cannot be given refs. Attempts to access this ref will fail. Did you mean to use React.forwardRef()? при открытии Popups панели
 
 Из за i18n компоненты рендерятся дважды, исправить и добавить интернационализацию на все необходимые компоненты
 
 скриншотные тесты на все rating компоненты
 
-Настроить для shared eslint правила
+Настроить для shared eslint правила(
+    import { useTheme } from '../shared/lib/hooks/useTheme/useTheme'
+) и пройти 94 урок Shared UI public api. Автоматизация рефакторинга - 1 комментарий под видео
+
+Настроить плагин eslint plugin import

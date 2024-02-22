@@ -3,7 +3,7 @@ import { Popover } from './Popover';
 import { Card } from '@/shared/ui/Card/Card';
 import { Text } from '@/shared/ui/Text/Text';
 import { ThemeDecorator } from '@/shared/config/decorators/ThemeDecorator';
-import { Theme } from '@/shared/contexts/theme/ThemeContext';
+import { Theme } from '@/app/providers/ThemeProvider/ThemeProvider';
 
 const meta = {
     title: 'shared/Popover',

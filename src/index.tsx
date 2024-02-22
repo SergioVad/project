@@ -1,6 +1,6 @@
 import ReactDom from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
-import { ThemeProvider } from '@/shared/contexts/theme/ThemeContext';
+import { ThemeProvider } from '@/app/providers/ThemeProvider/ThemeProvider';
 import '@/shared/config/i18next/i18next';
 import { ErrorBoundary } from '@/app/providers/ErrorBoundary';
 import { StoreProvider } from '@/app/providers/StoreProvider';

@@ -3,7 +3,7 @@ import { ArticleListItem } from './ArticleListItem';
 import { ArticlesView } from '../../model/const/const';
 import { Article } from '../../model/types/Article';
 import { ThemeDecorator } from '@/shared/config/decorators/ThemeDecorator';
-import { Theme } from '@/shared/contexts/theme/ThemeContext';
+import { Theme } from '@/app/providers/ThemeProvider/ThemeProvider';
 
 const meta = {
     title: 'entities/Article/ArticleListItem',

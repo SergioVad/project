@@ -1,9 +1,9 @@
 /build
-node_modules
+/node_modules
 /.vscode
 /storybook-static
-.loki/report.json
-.loki/report.html
-ВОПРОСЫ
-# .fttemplates
-# dist
+/ВОПРОСЫ
+/.fttemplates
+/dist
+/.huski
+.gitignore
