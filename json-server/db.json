@@ -740,6 +740,13 @@
       "rate": 3,
       "feedback": "8 статья супер пупер!",
       "id": "HK73O3K"
+    },
+    {
+      "userId": "1",
+      "articleId": "4",
+      "rate": 3,
+      "feedback": "2",
+      "id": "nzLoWfk"
     }
   ]
 }

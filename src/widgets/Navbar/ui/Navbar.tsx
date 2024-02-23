@@ -12,7 +12,7 @@ import { HStack } from '@/shared/ui/Stack/HStack/HStack';
 import { PopoverNotifications } from '@/features/PopoverNotifications';
 import { DropdownAvatar } from '@/features/DropdownAvatar';
 import cls from './Navbar.module.scss';
-import { RoutePath } from '@/shared/const/route';
+import { getRouteArticleCreate } from '@/shared/const/route';
 
 interface NavbarProps {
     className?: string;
@@ -38,7 +38,7 @@ export const Navbar = memo((options: NavbarProps) => {
                     theme={TextTheme.INVERTED}
                 />
                 <AppLink
-                    to={RoutePath.article_create}
+                    to={getRouteArticleCreate()}
                     theme={AppLinkTheme.SECONDARY_INVERTED}
                 >
                     {t('Создать статью')}

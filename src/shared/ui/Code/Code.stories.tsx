@@ -1,7 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Code } from './Code';
-import { ThemeDecorator } from '@/shared/config/decorators/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider/ThemeProvider';
 
 const meta = {
     title: 'shared/Code',
@@ -30,23 +28,4 @@ export const CodePrimary: Story = {
         + 'export default meta;\n'
         + 'type Story = StoryObj<typeof meta>;\n',
     },
-};
-
-export const CodePrimaryDark: Story = {
-    args: {
-        text: 'const meta = {\n'
-        + ' title: \'layers/Code\',\n'
-        + ' component: Code,\n'
-        + 'parameters: {\n'
-        + '},\n'
-        + ' tags: [\'autodocs\'],\n'
-        + 'argTypes: {\n'
-        + ' },\n'
-        + '} satisfies Meta<typeof Code>;\n'
-        + 'export default meta;\n'
-        + 'type Story = StoryObj<typeof meta>;\n',
-    },
-    decorators: [
-        ThemeDecorator(Theme.DARK),
-    ],
 };

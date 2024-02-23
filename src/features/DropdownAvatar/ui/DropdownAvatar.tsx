@@ -9,7 +9,7 @@ import {
 } from '@/entities/User';
 import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
-import { RoutePath } from '@/shared/const/route';
+import { getRouteAdmin, getRouteProfile } from '@/shared/const/route';
 
 interface DropdownAvatarProps {
     className?: string;
@@ -44,7 +44,7 @@ export const DropdownAvatar = memo((props: DropdownAvatarProps) => {
                 items={[
                     ...(isAdminPanelAvailabel ? [{
                         content: 'Админ',
-                        href: RoutePath.admin_panel,
+                        href: getRouteAdmin(),
                     }] : []),
                     {
                         content: 'Выйти',
@@ -52,7 +52,7 @@ export const DropdownAvatar = memo((props: DropdownAvatarProps) => {
                     },
                     {
                         content: 'Профиль',
-                        href: `${RoutePath.profile}${userAuthData.id}`,
+                        href: getRouteProfile(userAuthData.id),
                     },
                 ]}
             />

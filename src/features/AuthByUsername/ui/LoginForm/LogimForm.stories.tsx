@@ -1,7 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { StoreDecorator } from '@/shared/config/decorators/StoreDecorator';
-import { ThemeDecorator } from '@/shared/config/decorators/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider/ThemeProvider';
 import LoginForm, { reducersLoginForm } from './LoginForm';
 
 const meta = {
@@ -40,7 +38,7 @@ export const DarkSuccesfulLoginForm: Story = {
                 },
             },
             reducersLoginForm,
-        ), ThemeDecorator(Theme.DARK)],
+        )],
 };
 
 export const ErrorDarkLoginForm: Story = {
@@ -54,7 +52,7 @@ export const ErrorDarkLoginForm: Story = {
                 },
             },
             reducersLoginForm,
-        ), ThemeDecorator(Theme.DARK)],
+        )],
 };
 
 export const LoadingDarkLoginForm: Story = {
@@ -68,5 +66,5 @@ export const LoadingDarkLoginForm: Story = {
                 },
             },
             reducersLoginForm,
-        ), ThemeDecorator(Theme.DARK)],
+        )],
 };

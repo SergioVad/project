@@ -2,8 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ArticleListItem } from './ArticleListItem';
 import { ArticlesView } from '../../model/const/const';
 import { Article } from '../../model/types/Article';
-import { ThemeDecorator } from '@/shared/config/decorators/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider/ThemeProvider';
 
 const meta = {
     title: 'entities/Article/ArticleListItem',
@@ -106,25 +104,9 @@ export const ArticleSmall: Story = {
     },
 };
 
-export const ArticleSmallDark: Story = {
-    args: {
-        view: ArticlesView.SMALL,
-        article,
-    },
-    decorators: [ThemeDecorator(Theme.DARK)],
-};
-
 export const ArticleBig: Story = {
     args: {
         view: ArticlesView.BIG,
         article,
     },
-};
-
-export const ArticleBigDark: Story = {
-    args: {
-        view: ArticlesView.BIG,
-        article,
-    },
-    decorators: [ThemeDecorator(Theme.DARK)],
 };

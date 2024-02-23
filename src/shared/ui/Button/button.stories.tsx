@@ -1,8 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Button, ButtonSize, ButtonTheme } from './Button';
-import { ThemeDecorator } from '@/shared/config/decorators/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider/ThemeProvider';
 
 const meta = {
     title: 'Shared/Button',
@@ -23,13 +21,6 @@ export const ButtonPrimary: Story = {
     },
 };
 
-export const ButtonPrimaryDark: Story = {
-    args: {
-        children: 'CLICK',
-    },
-    decorators: [ThemeDecorator(Theme.DARK)],
-};
-
 export const ButtonClear: Story = {
     args: {
         children: 'CLICK',
@@ -42,14 +33,6 @@ export const ButtonOutlineRed: Story = {
         children: 'CLICK',
         theme: ButtonTheme.OUTLINE_RED,
     },
-};
-
-export const ButtonOutlineRedDark: Story = {
-    args: {
-        children: 'CLICK',
-        theme: ButtonTheme.OUTLINE_RED,
-    },
-    decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const ButtonBackgroundInverted: Story = {

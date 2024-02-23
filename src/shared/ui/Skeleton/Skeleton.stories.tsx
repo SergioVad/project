@@ -1,6 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeDecorator } from '@/shared/config/decorators/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider/ThemeProvider';
 import { Skeleton } from './Skeleton';
 
 const meta = {
@@ -29,21 +27,4 @@ export const Circle: Story = {
         width: 100,
         border: '50%',
     },
-};
-
-export const NormalDark: Story = {
-    args: {
-        height: 200,
-        width: '100%',
-    },
-    decorators: [ThemeDecorator(Theme.DARK)],
-};
-
-export const CircleDark: Story = {
-    args: {
-        height: 100,
-        width: 100,
-        border: '50%',
-    },
-    decorators: [ThemeDecorator(Theme.DARK)],
 };

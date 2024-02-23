@@ -7,57 +7,60 @@ import { ProfilePageAsync } from '@/pages/ProfilePage';
 import { ArticleEditPageAsync } from '@/pages/ArticleEditPage';
 import { AdminPanelPageAsync } from '@/pages/AdminPanelPage';
 import { ForbiddenPage } from '@/pages/ForbiddenPage';
-import { AppRoutes, RoutePath } from '@/shared/const/route';
+import {
+    AppRoutes, getRouteAbout, getRouteAdmin, getRouteArticleCreate,
+    getRouteArticleDetails, getRouteArticleEdit, getRouteArticles,
+    getRouteForbidden, getRouteMain, getRouteProfile,
+} from '@/shared/const/route';
 import { AppRoutesProps } from '@/shared/types/route';
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.MAIN]: {
-        path: RoutePath[AppRoutes.MAIN],
+        path: getRouteMain(),
         element: <MainPageAsync />,
     },
     [AppRoutes.ABOUT]: {
-        path: RoutePath[AppRoutes.ABOUT],
+        path: getRouteAbout(),
         element: <AboutPageAsync />,
     },
     [AppRoutes.PROFILE]: {
-        path: `${RoutePath[AppRoutes.PROFILE]}:id`,
+        path: getRouteProfile(':id'),
         element: <ProfilePageAsync />,
         AuthOnly: true,
     },
     [AppRoutes.ARTICLES]: {
-        path: RoutePath[AppRoutes.ARTICLES],
+        path: getRouteArticles(),
         element: <ArticlesPageAsync />,
         AuthOnly: true,
     },
     [AppRoutes.ARTICLE_DETAILS]: {
-        path: `${RoutePath[AppRoutes.ARTICLE_DETAILS]}:id`,
+        path: getRouteArticleDetails(':id'),
         element: <ArticleDetailsPageAsync />,
         AuthOnly: true,
     },
     [AppRoutes.ARTICLE_CREATE]: {
-        path: `${RoutePath.article_create}`,
+        path: getRouteArticleCreate(),
         element: <ArticleEditPageAsync />,
         AuthOnly: true,
     },
     [AppRoutes.ARTICLE_EDIT]: {
-        path: RoutePath.article_edit,
+        path: getRouteArticleEdit(':id'),
         element: <ArticleEditPageAsync />,
         AuthOnly: true,
     },
     [AppRoutes.ADMIN_PANEL]: {
-        path: RoutePath[AppRoutes.ADMIN_PANEL],
+        path: getRouteAdmin(),
         element: <AdminPanelPageAsync />,
         AuthOnly: true,
         roles: ['ADMIN', 'MANAGER'],
     },
     [AppRoutes.FORBIDDEN]: {
-        path: RoutePath[AppRoutes.FORBIDDEN],
+        path: getRouteForbidden(),
         element: <ForbiddenPage />,
     },
-
     // last
     [AppRoutes.NOT_FOUND]: {
-        path: RoutePath[AppRoutes.NOT_FOUND],
+        path: '*',
         element: <NotFoundPage />,
     },
 };

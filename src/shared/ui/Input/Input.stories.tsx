@@ -1,8 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Input } from './Input';
-import { ThemeDecorator } from '@/shared/config/decorators/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider/ThemeProvider';
 
 const meta = {
     title: 'Shared/Input',
@@ -21,13 +19,4 @@ export const InputPrimary: Story = {
     args: {
         label: 'Ввести значение',
     },
-};
-
-export const InputDark: Story = {
-    args: {
-        label: 'Ввести значение',
-    },
-    decorators: [
-        ThemeDecorator(Theme.DARK),
-    ],
 };

@@ -1,8 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ArticleSortSelect } from './ArticleSortSelect';
-import { sortByEntities } from '../../model/const/const';
-import { ThemeDecorator } from '@/shared/config/decorators/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider/ThemeProvider';
+import { sortByEntities } from '../../entities/Article/model/const/const';
 
 const meta = {
     title: 'entities/Article/ArticleSortSelect',
@@ -22,12 +20,4 @@ export const Primary: Story = {
         orderSelect: 'asc',
         entitiesSelect: sortByEntities.CREATED,
     },
-};
-
-export const PrimaryDark: Story = {
-    args: {
-        orderSelect: 'asc',
-        entitiesSelect: sortByEntities.CREATED,
-    },
-    decorators: [ThemeDecorator(Theme.DARK)],
 };

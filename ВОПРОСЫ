@@ -64,3 +64,11 @@ console.js:213 Warning: Function components cannot be given refs. Attempts to ac
 ) и пройти 94 урок Shared UI public api. Автоматизация рефакторинга - 1 комментарий под видео
 
 Настроить плагин eslint plugin import
+
+Пройти 97 урок Документация проекта
+
+После изменения themeProvider, нужно изменить название классов тем
+
+100 урок typedMemo
+
+Разобраться с мобильной версией RatingCard и при отправке отзыва не подтягивается текст "Спасибо за оценку"

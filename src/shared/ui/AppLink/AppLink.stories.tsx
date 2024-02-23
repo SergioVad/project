@@ -1,7 +1,5 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
-import { ThemeDecorator } from '@/shared/config/decorators/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider/ThemeProvider';
 import { AppLink } from './AppLink';
 
 const meta = {
@@ -24,13 +22,4 @@ export const AppLinkPrimary: Story = {
     args: {
         children: 'TEST',
     },
-};
-
-export const AppLinkPrimaryDark: Story = {
-    args: {
-        children: 'TEST',
-    },
-    decorators: [
-        ThemeDecorator(Theme.DARK),
-    ],
 };

@@ -4,7 +4,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Select, SelectOption } from '@/shared/ui/Select/Select';
 import { TSortOrder } from '@/shared/types/SortOrder';
 import cls from './ArticleSortSelect.module.scss';
-import { sortByEntities } from '../../model/const/const';
+import { sortByEntities } from '../../entities/Article/model/const/const';
 
 interface ArticleSortSelectProps {
     className?: string;

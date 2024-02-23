@@ -1,8 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Text } from '@/shared/ui/Text/Text';
 import { Card, CardTheme } from './Card';
-import { ThemeDecorator } from '@/shared/config/decorators/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider/ThemeProvider';
 
 const meta = {
     title: 'shared/Card',
@@ -23,28 +21,9 @@ export const CardPrimary: Story = {
     },
 };
 
-export const CardPrimaryDark: Story = {
-    args: {
-        children: <Text title="title" text="text" />,
-    },
-    decorators: [
-        ThemeDecorator(Theme.DARK),
-    ],
-};
-
 export const CardOutlined: Story = {
     args: {
         children: <Text title="title" text="text" />,
         theme: CardTheme.OUTLINED,
     },
-};
-
-export const CardOutlinedDark: Story = {
-    args: {
-        children: <Text title="title" text="text" />,
-        theme: CardTheme.OUTLINED,
-    },
-    decorators: [
-        ThemeDecorator(Theme.DARK),
-    ],
 };

@@ -1,7 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { ThemeDecorator } from '@/shared/config/decorators/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider/ThemeProvider';
 import { Text, TextSize, TextTheme } from './Text';
 
 const meta = {
@@ -36,51 +34,18 @@ export const OnlyText : Story = {
     },
 };
 
-export const DarkTitleAndText : Story = {
-    args: {
-        title: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.Id amet facilis quia aliquid, delectusmagnam quibusdam obcaecati officiisx provident dolor ut doloresipsam rerum sapiente quaerat non unde illum tempora.',",
-        text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.Id amet facilis quia aliquid, delectusmagnam quibusdam obcaecati officiisx provident dolor ut doloresipsam rerum sapiente quaerat non unde illum tempora.',",
-    },
-    decorators: [ThemeDecorator(Theme.DARK)],
-};
-
-export const DarkOnlyTitle : Story = {
-    args: {
-        title: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.Id amet facilis quia aliquid, delectusmagnam quibusdam obcaecati officiisx provident dolor ut doloresipsam rerum sapiente quaerat non unde illum tempora.',",
-    },
-    decorators: [ThemeDecorator(Theme.DARK)],
-};
-
-export const DarkOnlyText : Story = {
-    args: {
-        text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.Id amet facilis quia aliquid, delectusmagnam quibusdam obcaecati officiisx provident dolor ut doloresipsam rerum sapiente quaerat non unde illum tempora.',",
-    },
-    decorators: [ThemeDecorator(Theme.DARK)],
-};
-
-export const ErrorDarkTitleAndText : Story = {
-    args: {
-        theme: TextTheme.ERROR,
-        title: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.Id amet facilis quia aliquid, delectusmagnam quibusdam obcaecati officiisx provident dolor ut doloresipsam rerum sapiente quaerat non unde illum tempora.',",
-        text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.Id amet facilis quia aliquid, delectusmagnam quibusdam obcaecati officiisx provident dolor ut doloresipsam rerum sapiente quaerat non unde illum tempora.',",
-    },
-    decorators: [ThemeDecorator(Theme.DARK)],
-};
-
-export const ErrorDarkOnlyTitle : Story = {
+export const ErrorOnlyTitle : Story = {
     args: {
         theme: TextTheme.ERROR,
         title: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.Id amet facilis quia aliquid, delectusmagnam quibusdam obcaecati officiisx provident dolor ut doloresipsam rerum sapiente quaerat non unde illum tempora.',",
     },
-    decorators: [ThemeDecorator(Theme.DARK)],
 };
 
-export const ErrorDarkOnlyText : Story = {
+export const ErrorOnlyText : Story = {
     args: {
         theme: TextTheme.ERROR,
         text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.Id amet facilis quia aliquid, delectusmagnam quibusdam obcaecati officiisx provident dolor ut doloresipsam rerum sapiente quaerat non unde illum tempora.',",
     },
-    decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const TitleAndTextL : Story = {

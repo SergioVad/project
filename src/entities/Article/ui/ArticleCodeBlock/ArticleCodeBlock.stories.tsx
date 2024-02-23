@@ -2,8 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ArticleCodeBlock } from './ArticleCodeBlock';
 import { IArticleCodeBlock } from '../../model/types/Article';
 import { ArticleBlocksType } from '../../model/const/const';
-import { ThemeDecorator } from '@/shared/config/decorators/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider/ThemeProvider';
 
 const meta = {
     title: 'entities/article/ArticleCodeBlock',
@@ -28,11 +26,4 @@ export const Primary: Story = {
     args: {
         block: codeBlock,
     },
-};
-
-export const PrimaryDark: Story = {
-    args: {
-        block: codeBlock,
-    },
-    decorators: [ThemeDecorator(Theme.DARK)],
 };

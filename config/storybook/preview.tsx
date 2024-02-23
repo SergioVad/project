@@ -1,9 +1,8 @@
-import type { Preview } from '@storybook/react';
 import 'app/styles/index.scss';
+import { Preview } from '@storybook/react';
 import { RouterDecorator } from '@/shared/config/decorators/RouterDecorator';
 import { SuspenseDecorator } from '@/shared/config/decorators/SuspenseDecorator';
-import { ThemeDecorator } from '@/shared/config/decorators/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider/ThemeProvider';
+import { ThemeDecorator } from '@/shared/config/decorators/ThemeGlobalDecorator';
 
 const preview: Preview = {
     parameters: {
@@ -18,7 +17,7 @@ const preview: Preview = {
     decorators: [
         SuspenseDecorator,
         RouterDecorator(),
-        ThemeDecorator(Theme.LIGHT),
+        ThemeDecorator(),
     ],
 };
 

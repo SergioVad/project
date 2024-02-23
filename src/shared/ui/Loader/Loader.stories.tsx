@@ -1,7 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Loader } from './Loader';
-import { ThemeDecorator } from '@/shared/config/decorators/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider/ThemeProvider';
 
 const meta = {
     title: 'shared/Loader',
@@ -17,9 +15,3 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const LoaderPrimary: Story = {};
-
-export const LoaderDark: Story = {
-    decorators: [
-        ThemeDecorator(Theme.DARK),
-    ],
-};
