@@ -11,15 +11,13 @@ export const buildPlugins = (options: buildOptions): webpack.WebpackPluginInstan
     const {
         paths, isDev, analyze, apiUrl, project,
     } = options;
+    const isProd = !isDev;
     const plugins = [
         new HTMLWebpackPlugin({
             template: paths.html,
         }),
         new webpack.ProgressPlugin(),
-        new MiniCssExtractPlugin({
-            filename: 'css/[name].[contenthash:8].css',
-            chunkFilename: 'css/[name].[contenthash:8].css',
-        }),
+
         // Позволяет использовать глобальные переменные
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
@@ -49,6 +47,12 @@ export const buildPlugins = (options: buildOptions): webpack.WebpackPluginInstan
                 },
                 mode: 'write-references',
             },
+        }));
+    }
+    if (isProd) {
+        plugins.push(new MiniCssExtractPlugin({
+            filename: 'css/[name].[contenthash:8].css',
+            chunkFilename: 'css/[name].[contenthash:8].css',
         }));
     }
     return plugins;

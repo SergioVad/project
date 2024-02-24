@@ -1,3 +1,3 @@
-import { StateSchema } from '@/app/providers/StoreProvider';
+import { buildSelector } from '@/shared/lib/store';
 
-export const getStateInited = (state: StateSchema) => state.user._inited;
+export const [useStateInited, getStateInited] = buildSelector((state) => state.user._inited);

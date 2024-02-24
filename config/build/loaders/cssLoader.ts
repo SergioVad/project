@@ -4,6 +4,7 @@ export const cssLoader = (isDev: boolean) => {
     return (
         {
             test: /\.s[ac]ss$/i,
+            exclude: /node_modules/,
             use: [
             // Creates `style` nodes from JS strings
                 isDev ? 'style-loader' : MiniCssExtractPlugin.loader,

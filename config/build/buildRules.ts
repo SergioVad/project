@@ -9,11 +9,13 @@ export const buildLoaders = (options: buildOptions): webpack.RuleSetRule[] => {
     const tsxCodebabelLoader = buildBabelLoader({ ...options, isTsx: true });
 
     const svgLoader = {
+        exclude: /node_modules/,
         test: /\.svg$/,
         use: ['@svgr/webpack'],
     };
 
     const IMGLoader = {
+        exclude: /node_modules/,
         test: /\.(png|jpg|gif)$/i,
         type: 'asset/resource',
     };

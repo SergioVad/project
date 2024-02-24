@@ -24,7 +24,8 @@
     "analyze:dev": "webpack --env mode=development analyze=true",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "storybook:build": "storybook build -c ./config/storybook",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "postinstall": "node ./scripts/remove-cache-babel.js"
   },
   "keywords": [],
   "author": "",
@@ -63,7 +64,6 @@
     "@typescript-eslint/eslint-plugin": "^6.7.2",
     "babel-jest": "^29.7.0",
     "babel-loader": "^9.1.3",
-    "babel-plugin-i18next-extract": "^0.9.0",
     "circular-dependency-plugin": "^5.2.2",
     "concurrently": "^8.2.2",
     "css-loader": "^6.8.1",

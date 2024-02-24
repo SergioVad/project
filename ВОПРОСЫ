@@ -72,3 +72,7 @@ console.js:213 Warning: Function components cannot be given refs. Attempts to ac
 100 урок typedMemo
 
 Разобраться с мобильной версией RatingCard и при отправке отзыва не подтягивается текст "Спасибо за оценку"
+
+12 модуль - стрим, пересмотреть решения ошибок
+
+Попробовать объединить babel.config.json и babel.loader
