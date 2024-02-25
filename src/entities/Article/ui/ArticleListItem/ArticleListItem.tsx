@@ -13,6 +13,8 @@ import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
 import { Article, IArticleTextBlock } from '../../model/types/Article';
 import { ArticleBlocksType, ArticlesView } from '../../model/const/const';
 import { getRouteArticleDetails } from '@/shared/const/route';
+import { AppImage } from '@/shared/ui/AppImage/AppImage';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 
 interface ArticleListItemProps {
     className?: string;
@@ -30,13 +32,6 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     } = props;
     const { t } = useTranslation();
     const typeArticles = <Text text={article.type.join(', ')} className={cls.types} />;
-    const img = (
-        <img
-            src={article.img}
-            className={cls.img}
-            alt={article.title}
-        />
-    );
     const date = <Text text={article.createdAt} className={cls.date} />;
     const views = (
         <>
@@ -61,7 +56,12 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                     title={article.title}
                 />
                 {typeArticles}
-                {img}
+                <AppImage
+                    fallback={<Skeleton className={cls.img} />}
+                    src={article.img}
+                    className={cls.img}
+                    alt={article.title}
+                />
                 {textBlock && (
                     <ArticleTextBlock
                         block={textBlock}
@@ -93,7 +93,12 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                 className={classNames('', {}, [className, cls[view]])}
             >
                 <div className={cls.imageWrapper}>
-                    {img}
+                    <AppImage
+                        fallback={<Skeleton className={cls.img} />}
+                        src={article.img}
+                        className={cls.img}
+                        alt={article.title}
+                    />
                     {date}
                 </div>
                 <div className={cls.infoWrapper}>

@@ -6,7 +6,6 @@ import { DynamicReducerLoader, ReducersList } from '@/shared/lib/dynamicReducerL
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import { Text, TextAlign, TextSize } from '@/shared/ui/Text/Text';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import EyeIcon from '@/shared/assets/icons/eye.svg';
 import CalendarIcon from '@/shared/assets/icons/date.svg';
 import { Icon } from '@/shared/ui/Icon/Icon';
@@ -23,6 +22,7 @@ import { ArticleCodeBlock } from '../ArticleCodeBlock/ArticleCodeBlock';
 import { ArticleImageBlock } from '../ArticleImageBlock/ArticleImageBlock';
 import { ArticleBlock } from '../../model/types/Article';
 import { ArticleBlocksType } from '../../model/const/const';
+import { AppImage } from '@/shared/ui/AppImage/AppImage';
 
 interface ArticleDetailsProps {
   className?: string;
@@ -79,10 +79,14 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         content = (
             <>
                 <div className={cls.avatarWrapper}>
-                    <Avatar
+                    <AppImage
+                        fallback={
+                            <Skeleton className={cls.avatar} width={200} height={200} border="50%" />
+                        }
                         src={article.img}
                         size={200}
                         className={cls.avatar}
+                        round
                     />
                 </div>
                 <Text
