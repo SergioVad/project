@@ -27,6 +27,9 @@
     "prepare": "husky install",
     "postinstall": "node ./scripts/remove-cache-babel.js"
   },
+  "lint-staged": {
+    "**/*.{ts,tsx}": "eslint --quiet"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -89,6 +92,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "jest-html-reporters": "^3.1.7",
     "json-server": "^0.17.4",
+    "lint-staged": "^15.2.2",
     "loki": "^0.32.0",
     "mini-css-extract-plugin": "^2.7.6",
     "npm": "^10.2.0",

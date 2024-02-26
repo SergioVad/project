@@ -2,8 +2,7 @@
 /node_modules
 /.vscode
 /storybook-static
-/ВОПРОСЫ
+ВОПРОСЫ
 /.fttemplates
 /dist
 /.huski
-.gitignore
