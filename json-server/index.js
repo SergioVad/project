@@ -1,6 +1,7 @@
 const fs = require('fs');
 const jsonServer = require('json-server');
 const path = require('path');
+const https = require('https');
 
 const server = jsonServer.create();
 
@@ -8,6 +9,10 @@ const router = jsonServer.router(path.resolve(__dirname, 'db.json'));
 
 server.use(jsonServer.defaults({}));
 server.use(jsonServer.bodyParser);
+const options = {
+    key: fs.readFileSync('./key.pem'),
+    cert: fs.readFileSync('./cert.pem'),
+};
 
 // Эндпоинт для логина
 server.post('/login', (req, res) => {
@@ -42,6 +47,8 @@ server.use((req, res, next) => {
 });
 
 server.use(router);
+
+const httpsServer = https.createServer(options, server);
 
 // запуск сервера
 server.listen(8000, () => {

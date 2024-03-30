@@ -21,7 +21,7 @@ export default (env: BuildEnv) => {
 
     const port = env.port || 3000;
 
-    const apiUrl = env.apiUrl || 'https://37.228.117.229:8000';
+    const apiUrl = env.apiUrl || 'http://45.8.249.206:8000';
 
     const config: webpack.Configuration = buildWebpackConfig({
         mode,
