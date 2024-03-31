@@ -168,10 +168,7 @@ export const ButtonSquareSizeM: Story = {
 
 ----
 
-## CI pipeline и pre commit хуки
-
-Конфигурация github actions находится в /.github/workflows.
-В ci прогоняются все виды тестов, сборка проекта и сторибука, линтинг.
+## pre commit хуки
 
 В прекоммит хуках проверяем проект линтерами, конфиг в /.husky
 
@@ -185,7 +182,7 @@ export const ButtonSquareSizeM: Story = {
 Запросы на сервер отправляются с помощью [RTK query](/src/shared/api/rtkApi.ts)
 
 Для асинхронного подключения редюсеров (чтобы не тянуть их в общий бандл) используется
-[DynamicModuleLoader](/src/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader.tsx)
+[dynamicReducerLoader](/src/shared/lib/dynamicReducerLoader/dynamicReducerLoader.tsx)
 
 ----
 
